@@ -47,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         Log.d("Gitcheck","Git Check On server ");
+        Log.d("Diwash ka G12","G to L KAro");
         pName           = (TextView) findViewById(R.id.pname);
         pName.setText("Profile");
 

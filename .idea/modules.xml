@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/StudioProjects-VTS_Technician.iml" filepath="$PROJECT_DIR$/StudioProjects-VTS_Technician.iml" group="VTS_Technician" />
       <module fileurl="file://$PROJECT_DIR$/VTS_Technician.iml" filepath="$PROJECT_DIR$/VTS_Technician.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/VTS_Technician-app.iml" filepath="$PROJECT_DIR$/app/VTS_Technician-app.iml" group="VTS_Technician/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
