@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="7dp"
+    android:layout_marginRight="5dp"
+    card_view:cardCornerRadius="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="35dip"
+            android:layout_height="35dip">
+
+            <ImageView
+                android:id="@+id/triangle"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:background="@mipmap/ic_triangle" />
+
+            <TextView
+                android:id="@+id/countMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:padding="3dip"
+                android:text="99"
+                android:textColor="@color/white"
+                android:textSize="12dip" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topBelow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="5dip">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dip">
+
+                <ImageView
+                    android:id="@+id/vehicle_img"
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/ic_vechiles" />
+
+                <TextView
+                    android:id="@+id/txt_deviceId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="RTL12XX12334"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dip"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dip"
+                    android:text="Depo :"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="XXXXXXXXXXXX"
+                    android:textColor="@color/blue"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topBelow">
+
+
+            <RelativeLayout
+                android:id="@+id/topLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:padding="2dip">
+
+
+                <LinearLayout
+                    android:id="@+id/lin_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="2dip">
+
+                    <!-- speed & ignition -->
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Insert Date"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+
+                                <TextView
+                                    android:id="@+id/txt_date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dip"
+                                    android:layout_weight="1"
+                                    android:text="04-01-2018"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dp"
+                                    android:typeface="serif" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Installation Date:"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+
+                                <TextView
+                                    android:id="@+id/txt_instalDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dip"
+                                    android:layout_weight="1"
+                                    android:text="05-01-2018"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"
+                                    android:typeface="serif" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>
+                    <!-- end speed & ignition -->
+
+                    <!-- gps & vehicle type -->
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Start time:"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+
+                                <TextView
+                                    android:id="@+id/txt_installTo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dip"
+                                    android:layout_weight="1"
+                                    android:text="DL1RT1234"
+                                    android:textColor="@color/red"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="End time :"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+
+                                <TextView
+                                    android:id="@+id/txt_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="2dip"
+                                    android:layout_weight="1"
+                                    android:text="xxxxxx"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"
+                                    android:typeface="serif" />
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>
+                    <!-- end gps & vehicle type -->
+
+                    <!-- direction & vehicle status-->
+                    <!--<RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:text="Direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:typeface="serif"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="2dip"
+                                    android:typeface="serif"
+                                    android:text="xxxxxx"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+                                <TextView
+                                    android:text="Status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dip"
+                                    android:typeface="serif"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_vehiclestatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="xxxxxx"
+                                    android:typeface="serif"
+                                    android:layout_marginLeft="2dip"
+                                    android:textColor="@color/red"
+                                    android:textStyle="bold"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>-->
+                    <!-- end direction & vehicle status -->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lin_first"
+                    android:orientation="horizontal"
+                    android:paddingBottom="2dip">
+
+                    <!-- speed & ignition -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:stretchColumns="0,1">
+
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/txt_titl_ime"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ImeiNo : "
+                                        android:textColor="@color/mckenzie_brown"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <TextView
+                                        android:id="@+id/txt_imeino"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dip"
+                                        android:layout_toRightOf="@+id/txt_titl_ime"
+                                        android:layout_weight="1"
+                                        android:text="5254545325458"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dp"
+                                        android:typeface="serif" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/txt_title_rema"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Remarks:"
+                                        android:textColor="@color/mckenzie_brown"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <TextView
+                                        android:id="@+id/txt_remarks"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dip"
+                                        android:layout_toRightOf="@+id/txt_title_rema"
+                                        android:layout_weight="1"
+                                        android:text="Remarks 1"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dip"
+                                        android:typeface="serif" />
+                                </RelativeLayout>
+
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/txt_titl_division"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Division : "
+                                        android:textColor="@color/mckenzie_brown"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <TextView
+                                        android:id="@+id/txt_division"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dip"
+                                        android:layout_toRightOf="@+id/txt_titl_division"
+                                        android:layout_weight="1"
+                                        android:text="Division Name"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dp"
+                                        android:typeface="serif" />
+                                </RelativeLayout>
+
+
+                            </TableRow>
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/txt_titl_cu_add"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Current Address : "
+                                        android:textColor="@color/mckenzie_brown"
+                                        android:textSize="10dp"
+                                        android:textStyle="bold"
+                                        android:typeface="serif" />
+
+                                    <TextView
+                                        android:id="@+id/txt_currenT_add"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="2dip"
+                                        android:layout_toRightOf="@+id/txt_titl_cu_add"
+                                        android:layout_weight="1"
+                                        android:text="Complete Address"
+                                        android:textColor="@color/black"
+                                        android:textSize="10dp"
+                                        android:typeface="serif" />
+                                </RelativeLayout>
+
+
+                            </TableRow>
+
+
+                        </TableLayout>
+
+
+                    </RelativeLayout>
+                    <!-- end speed & ignition -->
+
+                    <!-- gps & vehicle type -->
+                    <!-- end gps & vehicle type -->
+
+                    <!-- direction & vehicle status-->
+                    <!--<RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:text="Direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:typeface="serif"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="2dip"
+                                    android:typeface="serif"
+                                    android:text="xxxxxx"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+                                <TextView
+                                    android:text="Status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dip"
+                                    android:typeface="serif"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_vehiclestatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="xxxxxx"
+                                    android:typeface="serif"
+                                    android:layout_marginLeft="2dip"
+                                    android:textColor="@color/red"
+                                    android:textStyle="bold"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>-->
+                    <!-- end direction & vehicle status -->
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/topBelow"
+            android:background="@color/blue" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

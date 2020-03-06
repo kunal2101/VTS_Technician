@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_7">
+    <RelativeLayout
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/layout_toolbar"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar">
+
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dip">
+
+            <!-- start row one -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/userPicLay"
+                    android:layout_width="0dip"
+                    android:layout_height="0dip"
+                    android:paddingTop="15dip">
+
+                    <ImageView
+                        android:id="@+id/profilePic"
+                        android:layout_width="105dip"
+                        android:layout_height="105dip"
+                        android:src="@drawable/avatar"
+                        android:scaleType="fitXY"/>
+
+                    <Button
+                        android:id="@+id/btn_change_pic"
+                        android:layout_width="105dip"
+                        android:layout_height="26dip"
+                        android:text="Change"
+                        android:gravity="center"
+                        android:textColor="@drawable/txt_selector_white"
+                        android:background="#cc000000"
+                        android:layout_alignBottom="@+id/profilePic"/>
+
+                    <!-- <Button
+                         android:id="@+id/btnUpload"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:background="@drawable/btn_orange"
+                         android:layout_margin="5dip"/>-->
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/userNameLay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="0dip">
+
+                    <!--<TextView
+                        android:id="@+id/editNameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Edit Profile"
+                        android:textColor="@color/black"
+                        android:textSize="0dip"/>-->
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/input_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:drawableLeft="@drawable/ic_user"
+                            android:textColorHint="@color/app_back_color"
+                            android:textSize="16dip"
+                            android:gravity="center_vertical"
+                            android:inputType="text"
+                            android:hint="Name"/>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dip">
+                        <EditText
+                            android:id="@+id/input_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/app_back_color"
+                            android:drawableLeft="@drawable/ic_email"
+                            android:textSize="16dip"
+                            android:hint="Email Address"
+                            android:inputType="textMultiLine|textEmailAddress"
+                            android:gravity="center_vertical"/>
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <!-- end row one -->
+
+            <!-- start edit Bio row -->
+            <!--<TextView
+                android:id="@+id/editBioLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address"
+                android:textColor="@color/black"
+                android:layout_marginTop="1dip"
+                android:textSize="0dip"/>-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/input_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/app_back_color"
+                    android:drawableLeft="@drawable/ic_mobile"
+                    android:textSize="16dip"
+                    android:hint="Mobile number"
+                    android:inputType="phone"
+                    android:layout_marginTop="2dip"
+                    android:gravity="center_vertical"/>
+            </android.support.design.widget.TextInputLayout>
+            <!-- end edit Bio row -->
+
+
+
+            <!-- Address Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText android:id="@+id/input_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:hint="Address"
+                    android:textSize="16dip"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="2dip"
+                    android:drawableLeft="@drawable/ic_address"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <!-- start edit email -->
+            <TextView
+                   android:id="@+id/editEmailLabel"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Payment Mode"
+                   android:textColor="@color/black"
+                   android:layout_marginTop="15dip"
+                   android:textSize="16dip"
+                android:visibility="invisible"/>
+
+               <RadioGroup
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:id="@+id/genderTxt"
+                   android:layout_centerHorizontal="true"
+                   android:orientation="horizontal"
+                   android:theme="@style/MyRadioButton"
+                   android:visibility="gone">
+
+                   <RadioButton
+                       android:id="@+id/radioMale"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:checked="true"
+                       android:text="By Cash"/>
+
+                   <RadioButton
+                       android:id="@+id/radioFemale"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="10dip"
+                       android:text="By Bank" />
+
+               </RadioGroup>
+
+
+
+            <!-- button save -->
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="160dip"
+                android:layout_height="45dip"
+                android:text="UPDATE"
+                android:textColor="@color/white"
+                android:textSize="16dip"
+                android:layout_margin="20dip"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/btn_black"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="7dp"
+    card_view:cardCornerRadius="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="35dip"
+            android:layout_height="35dip">
+
+            <ImageView
+                android:id="@+id/triangle"
+                android:layout_width="45dip"
+                android:layout_height="45dip"
+                android:background="@mipmap/ic_triangle"/>
+
+            <TextView
+                android:id="@+id/countMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="99"
+                android:layout_marginLeft="2dp"
+                android:textColor="@color/white"
+                android:textSize="12dip"
+                android:padding="3dip"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/topBelow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="20dip">
+
+                <ImageView
+                    android:id="@+id/vehicle_img"
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:src="@mipmap/ic_vechiles"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/txt_deviceId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RTL12XX12334"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+
+
+          <!--  <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_marginTop="5dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dip"
+                    android:layout_marginRight="5dp"
+                    android:text="Manager:"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    android:id="@+id/txt_manager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="XXXXXXXXXXXX"
+                    android:textColor="@color/blue"
+                    android:textSize="12dp"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>-->
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topBelow"
+            android:id="@+id/middle"
+            >
+
+
+            <RelativeLayout
+                android:id="@+id/topLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dip"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="2dip">
+
+                    <!-- speed & ignition -->
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:text="Submition Date :"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:typeface="serif"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="2dip"
+                                    android:text="04-01-2018"
+                                    android:typeface="serif"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dp"/>
+                            </TableRow>
+
+<!--
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+                                <TextView
+                                    android:text="Installation Date:"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:typeface="serif"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_instalDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="05-01-2018"
+                                    android:typeface="serif"
+                                    android:layout_marginLeft="2dip"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+-->
+                        </TableLayout>
+
+                    </RelativeLayout>
+                    <!-- end speed & ignition -->
+
+                    <!-- gps & vehicle type -->
+                    <RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!--<TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:text="Installed To:"
+                                    android:typeface="serif"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dp"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_installTo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="2dip"
+                                    android:typeface="serif"
+                                    android:text="DL1RT1234"
+                                    android:textColor="@color/red"
+                                    android:textStyle="bold"
+                                    android:textSize="10dip"/>
+                            </TableRow>-->
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+                                <TextView
+                                    android:text="Status :"
+                                    android:typeface="serif"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="xxxxxx"
+                                    android:typeface="serif"
+                                    android:layout_marginLeft="2dip"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>
+                    <!-- end gps & vehicle type -->
+
+                    <!-- direction & vehicle status-->
+                    <!--<RelativeLayout
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TableLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TableRow
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:text="Direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:typeface="serif"
+                                    android:textSize="10dip"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="2dip"
+                                    android:typeface="serif"
+                                    android:text="xxxxxx"
+                                    android:textColor="@color/black"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+
+                            <TableRow
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_marginTop="3dip">
+                                <TextView
+                                    android:text="Status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/mckenzie_brown"
+                                    android:textSize="10dip"
+                                    android:typeface="serif"
+                                    android:textStyle="bold"/>
+
+                                <TextView
+                                    android:id="@+id/txt_vehiclestatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="xxxxxx"
+                                    android:typeface="serif"
+                                    android:layout_marginLeft="2dip"
+                                    android:textColor="@color/red"
+                                    android:textStyle="bold"
+                                    android:textSize="10dip"/>
+                            </TableRow>
+                        </TableLayout>
+
+                    </RelativeLayout>-->
+                    <!-- end direction & vehicle status -->
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/blue"
+            android:layout_below="@+id/topBelow"/>
+        <!--<LinearLayout
+            android:id="@+id/footer_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dip"
+            android:layout_below="@+id/middle"
+            android:background="@color/colorPrimaryDark">
+
+
+            <TextView
+                android:id="@+id/txt_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:typeface="serif"
+                android:text="House No. K-1009 sector 23 sanjeev nagar...."
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="12dp"/>
+
+
+        </LinearLayout>-->
+
+        <!--<View
+
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/blue"
+            android:layout_below="@+id/middle"/>-->
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

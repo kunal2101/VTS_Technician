@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rtl.vts_technician.MainActivity">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/tools"
+        />
+
+    <RelativeLayout
+        android:id="@+id/veh_stus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:layout_below="@+id/tools">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome : User1"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16dip"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/veh_stus"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ly_addDevice"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#ffcd927f"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="1dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_add"/>
+
+                <TextView
+                    android:id="@+id/txt_addDevice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="1dip"
+                    android:paddingTop="1dip"
+                    android:text="New Device Installation"
+                    android:textColor="#ffffff"
+                    android:textSize="15dip"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    />
+
+
+
+               <!-- <TextView
+                    android:id="@+id/tot_v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dip"
+                    android:gravity="center_horizontal"
+                    android:text="Total Vehicle"
+                    android:textColor="@color/white"
+                    android:textSize="13dip"
+                    android:textStyle="bold"
+                    android:typeface="serif" />-->
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2.0">
+
+                <LinearLayout
+                    android:id="@+id/ly_history"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_weight="1.0"
+                    android:background="#0E83A6"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_history"/>
+                    <TextView
+                        android:id="@+id/txt_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="1dip"
+                        android:paddingTop="1dip"
+                        android:text="View History"
+                        android:textColor="#ffffff"
+                        android:textSize="15dip"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                    />
+
+                    <!--<TextView
+                        android:id="@+id/npv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Non Polling Vehicle"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_maintenance"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#48A3B8"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_repair"/>
+                    <TextView
+                        android:id="@+id/txt_maintaince"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="1dip"
+                        android:paddingTop="1dip"
+                        android:text="Device Maintenance"
+                        android:textColor="#ffffff"
+                        android:textSize="15dip"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                     />
+
+                   <!-- <TextView
+                        android:id="@+id/run_v"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Running Vehicle"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />-->
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="130dp"
+                android:orientation="horizontal"
+                android:weightSum="2.0">
+
+                <LinearLayout
+                    android:id="@+id/ly_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#1EAE93"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/ic_accept"/>
+                    <TextView
+                        android:id="@+id/txt_approved"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="1dip"
+                        android:paddingTop="1dip"
+                        android:text="My Profile"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        />
+
+                   <!-- <TextView
+                        android:id="@+id/iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Idle Vehicle"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />-->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_replace"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:background="#69C7B5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_de_ins"/>
+                    <TextView
+                        android:id="@+id/txt_reject"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:paddingBottom="1dip"
+                        android:paddingTop="1dip"
+                        android:text="Device Installation/Replace"
+                        android:textColor="#ffffff"
+                        android:textSize="15dip"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:shadowColor="@color/black"
+                        />
+
+                   <!-- <TextView
+                        android:id="@+id/sv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="Stop Vehicle"
+                        android:textColor="#ffffff"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:typeface="serif" />-->
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/txt_Logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rect_red_dark"
+                android:gravity="center"
+                android:letterSpacing="0.0425"
+                android:padding="18dp"
+                android:text="LOGOUT"
+                android:textColor="@color/white"
+                android:textSize="13.3sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rtl.vts_technician.Repair_Device">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/tools"
+        />
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tools"
+        android:clickable="true"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="5dp"
+        card_view:cardPreventCornerOverlap="false">
+
+        <RelativeLayout
+            android:id="@+id/internal_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/h_tit"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:weightSum="2"
+               >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Device Id:"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vehicle No."
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:typeface="serif"
+                     />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upper_row_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/h_tit"
+                android:orientation="horizontal">
+
+                <!-- row two one -->
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginTop="7dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_gray_corner_circular"
+                    android:padding="5dip">
+
+                    <ImageView
+                        android:id="@+id/icon_vehicle"
+                        android:layout_width="35dip"
+                        android:layout_height="35dip"
+                        android:layout_alignParentLeft="true"
+                        android:background="@mipmap/ic_vechiles" />
+
+                    <EditText
+                        android:id="@+id/txt_deviceId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:layout_toRightOf="@+id/icon_vehicle"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:typeface="serif"
+                        />
+
+                </RelativeLayout>
+
+                <!-- row two two -->
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="45dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginRight="8dip"
+                    android:layout_marginTop="7dip"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_gray_corner_circular"
+                    android:padding="5dip">
+
+                    <ImageView
+                        android:id="@+id/ic_vehicle"
+                        android:layout_width="35dip"
+                        android:layout_height="35dip"
+                        android:layout_alignParentLeft="true"
+                        android:background="@mipmap/ic_vechiles" />
+
+                    <EditText
+                        android:id="@+id/txt_vehicleNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:textStyle="bold"
+                        android:layout_toRightOf="@+id/ic_vehicle"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:typeface="serif"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upper_row_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/upper_row_one"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Problem Type"
+                    android:textColor="@color/colorPrimary"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <!-- row one one -->
+                <RelativeLayout
+                    android:id="@+id/v_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_gray_corner_circular"
+                    android:padding="5dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginRight="8dip">
+
+                    <ImageView
+                        android:id="@+id/iconvehicle"
+                        android:layout_width="25dip"
+                        android:layout_height="25dip"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/ic_setting"
+                        android:layout_alignParentLeft="true"/>
+
+                    <Spinner
+                        android:id="@+id/spi_problem"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/iconvehicle"
+                        android:layout_toLeftOf="@+id/icon_drop_down"
+                        android:prompt="@string/spinner_prompt"
+                        android:background="@null">
+
+                    </Spinner>
+
+                    <ImageView
+                        android:id="@+id/icon_drop_down"
+                        android:layout_width="20dip"
+                        android:layout_height="20dip"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/ic_arrow_down"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upper_row_three"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:layout_marginTop="10dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip"
+                android:visibility="gone"
+                android:layout_below="@+id/upper_row_two">
+
+                <ImageView
+                    android:layout_width="25dip"
+                    android:layout_height="25dip"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/ic_setting"
+                    android:layout_marginLeft="2dp"
+                    android:layout_alignParentLeft="true"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/etproblem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textColorHint="@color/dark_blue"
+                    android:typeface="serif">
+                    <EditText
+                        android:id="@+id/txtProblem"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="Enter Problem"
+                        android:fontFamily="serif"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/main_grey"
+                        android:textSize="16dip"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upper_row_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/upper_row_three"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:textColor="@color/colorPrimary"
+                    android:typeface="serif"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    />
+                <!-- row one one -->
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_gray_corner_circular"
+                    android:padding="5dip"
+                    android:layout_marginLeft="8dip"
+                    android:layout_marginRight="8dip">
+
+                        <RadioGroup
+                            android:id="@+id/rg_views"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <RadioButton
+                                android:id="@+id/rb_normal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Repaired"
+                                android:layout_gravity="left"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:checked="true" />
+
+                            <RadioButton
+                                android:id="@+id/rb_hybrid"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="30dp"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:text="Not Repaired" />
+
+                        </RadioGroup>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="250dip"
+                android:layout_height="48dip"
+                android:fontFamily="serif"
+                android:background="@drawable/btn_orange"
+                android:layout_marginTop="20dip"
+                android:textColor="@color/white"
+                android:textSize="18dip"
+                android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
+                android:text="Submit"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/upper_row_four"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
