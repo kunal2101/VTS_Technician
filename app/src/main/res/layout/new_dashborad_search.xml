@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f2f2f2">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/cover"
+                android:layout_width="match_parent"
+                android:layout_height="285dp"
+
+
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/bg"
+                    android:scaleType="centerCrop"
+
+                    />
+
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:elevation="8dp"
+                    android:background="@drawable/rect"
+
+                    android:layout_marginBottom="10dp"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="4"
+                        android:background="@drawable/rect"
+
+                        android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/editVehicleNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3.5"
+                        android:background="@drawable/rect"
+                        android:hint="Search Vehicle Number..."
+                        android:textColorHint="@color/colorSub"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorTex"
+                        android:padding="15dp"
+                        android:maxLines="1"
+                        android:elevation="8dp"
+                        />
+                    <ImageView
+                        android:id="@+id/imgSearch"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5"
+                        android:background="@drawable/rect"
+
+                        android:layout_margin="10dp"
+                        android:src="@drawable/ic_search_black_24dp"/>
+                    </LinearLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_below="@+id/cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="2.5dp"
+                    android:background="#db4437"
+
+                    android:layout_marginLeft="150dp"
+                    android:layout_marginRight="150dp"
+                    />
+                <LinearLayout
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="#f2f2f2"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:gravity="center"
+                        android:layout_margin="2dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/ly_history"
+
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/dash_history"/>
+
+                            <TextView
+                                android:fontFamily="@font/poppinssemibold"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="5dp"
+                                android:text="View History"
+                                android:textColor="@color/black"
+                                android:textSize="13dp" />
+                        </LinearLayout>
+                        <View
+                            android:layout_weight=".01"
+                            android:layout_width="0dp"
+                            android:background="#f2f2f2"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:id="@+id/ly_maintenance"
+
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_margin="1dp"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_monitering"/>
+
+                            <TextView
+                                android:fontFamily="@font/poppinssemibold"
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="5dp"
+                                android:text="Device Manitenance"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:background="@color/white"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/addDevice"
+
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_margin="1dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic1"/>
+
+                            <TextView
+                                android:fontFamily="@font/robotobold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13dp"
+                                android:layout_gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="5dp"
+                                android:text="Device Install"/>
+                        </LinearLayout>
+                        <View
+                            android:layout_weight=".01"
+                            android:layout_width="0dp"
+                            android:background="#f2f2f2"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:id="@+id/removeDevice"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_margin="1dp"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_network_speed"/>
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13dp"
+                                android:fontFamily="@font/robotobold"
+                                android:layout_gravity="center"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="5dp"
+                                android:text="Device Deinstall"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDownVeh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rect_blue_cornor"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:padding="12.5dp"
+                android:layout_marginTop="10dp"
+                android:text="Down Vehicle Info."
+                android:textAllCaps="false"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="13.5sp" />
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</RelativeLayout>

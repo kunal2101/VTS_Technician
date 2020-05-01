@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:elevation="1dp"
+    android:background="@drawable/recycle_rect"
+    tools:ignore="MissingDefaultResource">
+
+
+    <TextView
+        android:id="@+id/txtVehNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Vehicle No"
+        android:textColor="#000"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/txtAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Complete Address"
+        android:textColor="#A2A2A2"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/txtDatetime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="2020-04-01 11:33:39.0"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="#000"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_parking" />
+
+        <TextView
+            android:id="@+id/txtImeiNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:text="867322031137722"
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="12dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
+            android:src="@drawable/ic_swimming_pool" />
+
+        <TextView
+            android:id="@+id/txtDepo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="0dp"
+            android:visibility="gone"
+            android:text="NASIK 1"
+            android:textSize="12dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
