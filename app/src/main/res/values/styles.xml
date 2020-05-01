@@ -16,6 +16,22 @@
         <item name="colorControlNormal">@color/divider_color</item>
         <item name="colorControlActivated">@color/colorPrimaryDark</item>
     </style>
+    <style name="CustomProgressBarTheme">
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="botoombar_textchange">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="disabled_btn" parent="@android:style/Widget.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_disabled_button</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
 
 
 </resources>

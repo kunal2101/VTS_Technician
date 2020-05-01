@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c8c8c6">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/shelterLayout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".1"
+            android:background="#f1f1f1"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="3dip"
+                android:layout_height="match_parent"
+                android:background="@color/primary"/>
+            <TextView
+                android:id="@+id/txtid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="id"
+                android:textColor="#434343"
+                android:textSize="12dip"
+                android:layout_marginLeft="2dip"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linId"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/messageStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dip"
+                android:background="#f1f1f1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Message Status - L (live)"
+                android:textColor="#f05421"
+                android:textSize="15dip"
+
+                />
+
+            <TextView
+                android:id="@+id/messageTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dip"
+                android:background="#f1f1f1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Date/Time :- "
+                android:textColor="#f05421"
+                android:textSize="15dip"
+
+                />
+
+            <TextView
+                android:id="@+id/serverTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dip"
+                android:background="#f1f1f1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Date/Time :- "
+                android:textColor="#f05421"
+                android:textSize="15dip"
+
+                />
+
+
+            <TextView
+            android:id="@+id/txtETM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dip"
+            android:background="#f1f1f1"
+            android:gravity="center"
+            android:text="Raqw Data"
+            android:textColor="#434343"
+            android:textSize="12dip"
+             />
+
+
+        </LinearLayout>
+
+    </TableRow>
+
+</TableLayout>

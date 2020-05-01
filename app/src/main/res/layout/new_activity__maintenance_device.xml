@@ -69,7 +69,7 @@
                     android:layout_marginLeft="5dp"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="Vehicle No."
+                    android:text="Vehicle No"
                     android:fontFamily="serif"
                     android:inputType="text"
                     android:textColor="@color/dark_blue"
@@ -308,7 +308,7 @@
                     android:layout_marginLeft="5dp"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:text="Remarks"
+                    android:text="Choose Remarks"
                     android:fontFamily="serif"
                     android:inputType="text"
                     android:textColor="@color/dark_blue"
@@ -382,7 +382,7 @@
             </LinearLayout>
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
@@ -450,7 +450,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <LinearLayout

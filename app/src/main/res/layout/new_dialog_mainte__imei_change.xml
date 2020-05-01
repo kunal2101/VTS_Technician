@@ -5,7 +5,7 @@
     android:padding="10dp"
    >
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ip_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +20,6 @@
         android:inputType="textEmailAddress"
         android:drawableLeft="@mipmap/ic_desig"
         android:hint="Enter New Imeino/ Device Change" />
-</android.support.design.widget.TextInputLayout>
+</com.google.android.material.textfield.TextInputLayout>
 
 </RelativeLayout>

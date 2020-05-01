@@ -3,21 +3,19 @@ package com.rtl.vts_technician;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.rtl.vts_technician.adapter.New_HistoryListAdapter;
+import com.rtl.vts_technician.Database.DatabaseHelper;
 import com.rtl.vts_technician.adapter.New_ReplaceHistoryListAdapter;
-import com.rtl.vts_technician.model.DeviceModel;
+import com.rtl.vts_technician.model.ReplaceDeviceModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +24,11 @@ import static android.content.ContentValues.TAG;
 
 public class New_fragment_Replace_dev extends Fragment {
 
-    ImageView pimage;
-    TextView pName;
     RecyclerView historyRecyclerView;
     private New_ReplaceHistoryListAdapter historyListAdapter;
-    private List<DeviceModel> historyList = new ArrayList<>();
+    private List<ReplaceDeviceModel> historyList = new ArrayList<>();
+    DatabaseHelper dbHelper;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.new_activity_history, container, false);
@@ -40,11 +38,10 @@ public class New_fragment_Replace_dev extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         historyRecyclerView     = (RecyclerView)view. findViewById(R.id.historyRecyclerView);
+        dbHelper = new DatabaseHelper(getActivity());
 
-
+        historyList = dbHelper.getReplace_Arry_list();
 
         historyRecyclerView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -52,10 +49,11 @@ public class New_fragment_Replace_dev extends Fragment {
 
         historyListAdapter = new New_ReplaceHistoryListAdapter(historyList);
         historyRecyclerView.setAdapter(historyListAdapter);
-        prepareHistoryData();
+        //prepareHistoryData();
 
     }
-    private void prepareHistoryData() {
+
+   /* private void prepareHistoryData() {
 
         DeviceModel deviceModel = new DeviceModel("RTL1XX1234", "11:20", "01-01-2018", "12:25", "12-12-2017", "Depo 2");
         historyList.add(deviceModel);
@@ -86,7 +84,7 @@ public class New_fragment_Replace_dev extends Fragment {
 
         historyListAdapter.notifyDataSetChanged();
 
-    }
+    }*/
 
     @SuppressLint("RestrictedApi")
     @Override

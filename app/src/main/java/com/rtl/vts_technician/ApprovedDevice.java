@@ -3,18 +3,16 @@ package com.rtl.vts_technician;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rtl.vts_technician.adapter.ApprovedDeviceListAdapter;
-import com.rtl.vts_technician.adapter.HistoryListAdapter;
 import com.rtl.vts_technician.model.ApprovedDeviceModel;
-import com.rtl.vts_technician.model.DeviceModel;
 
 import java.util.ArrayList;
 import java.util.List;

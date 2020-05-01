@@ -15,4 +15,6 @@
     <dimen name="design_navigation_separator_vertical_padding">0dp</dimen>
     <dimen name="mapicon_size">25dip</dimen>
     <dimen name="mapicon_top">5dip</dimen>
+    <dimen name="item_offset">3dp</dimen>
+
 </resources>

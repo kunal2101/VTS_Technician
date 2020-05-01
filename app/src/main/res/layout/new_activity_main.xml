@@ -196,7 +196,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
-                        android:src="@mipmap/ic_accept"/>
+                        android:src="@drawable/ic_users"/>
                     <TextView
                         android:id="@+id/txt_approved"
                         android:layout_width="match_parent"
@@ -280,10 +280,42 @@
                 android:letterSpacing="0.0425"
                 android:padding="18dp"
                 android:text="LOGOUT"
+                android:visibility="gone"
                 android:textColor="@color/white"
                 android:textSize="13.3sp" />
 
+            <Button
+                android:id="@+id/btn_installation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/rect_blue_cornor"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:padding="12.5dp"
+                android:layout_marginTop="20dp"
+                android:text="New Installation"
+                android:textAllCaps="false"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="13.5sp" />
+
+
         </LinearLayout>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/imgView_logout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/ic_logout"/>
+
 
 </RelativeLayout>

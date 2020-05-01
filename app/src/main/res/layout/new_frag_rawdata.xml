@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_image"
+    tools:context=".MainActivity">
+    <!--
+        <RelativeLayout
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/layout_toolbar" />
+
+        </RelativeLayout>
+    -->
+    <LinearLayout
+        android:id="@+id/linRawData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginLeft="20.7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RAW DATA CHECK"
+            android:fontFamily="@font/robotobold"
+            android:textSize="25sp"
+            android:textColor="#ffffff"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="9.2dp"
+            android:background="@color/white"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MSTRC"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginLeft="8.5dp"
+            android:textSize="20sp"
+            android:textColor="#f05421"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/viewRawData"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/linRawData"
+        android:layout_marginLeft="9.2dp"
+        android:background="@color/white"/>
+    <TextView
+        android:id="@+id/date_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date :- 20-04-2020"
+        android:layout_marginLeft="20.7dp"
+
+        android:layout_below="@+id/viewRawData"
+        android:fontFamily="@font/robotobold"
+        android:textSize="20sp"
+        android:textColor="#ffffff"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/lin_sea_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="22.1dp"
+        android:layout_marginRight="21.1dp"
+        android:background="@drawable/rectangle_2"
+        android:orientation="horizontal"
+        android:paddingBottom="5.5dp"
+        android:paddingTop="5.5dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12.5dp"
+            android:src="@drawable/ic_search_black_24dp"
+            android:layout_marginTop="5dp"
+            android:tint="#d0d0d0" />
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spinner_vehicle"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8.7dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            app:hintText="Search ImeiNo/DeviceId..."
+            />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="15.4dp"
+            android:src="@drawable/ic_places"
+            android:visibility="gone"
+            android:tint="#d22532" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/search_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAddImeiNO"
+        android:layout_marginLeft="22.1dp"
+        android:layout_marginRight="21.1dp"
+        android:layout_marginTop="22.1dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="SEARCH"
+        android:textColor="#ffffff"
+        android:textSize="14.4sp" />
+    <TextView
+        android:id="@+id/txtAddImeiNO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lin_sea_"
+        android:layout_marginLeft="22.1dp"
+        android:layout_marginRight="21.1dp"
+        android:layout_marginTop="22.1dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:clickable="false"
+        android:text="Add New ImeiNo(Data Sync)"
+        android:textColor="#ffffff"
+        android:textSize="14.4sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/fb_blue"
+        android:text="Powered By RAPL"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

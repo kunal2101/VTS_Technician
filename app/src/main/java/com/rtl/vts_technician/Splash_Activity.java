@@ -5,10 +5,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.animation.Animation;
@@ -30,14 +30,16 @@ public class Splash_Activity extends AppCompatActivity {
             Manifest.permission.ACCESS_COARSE_LOCATION,
 
     };
+    Thread background;
+
     private SharedPreferences permissionStatus;
     private boolean sentToSettings = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash__screen);
         permissionStatus = getSharedPreferences("permissionStatus", MODE_PRIVATE);
-        img = (ImageView) findViewById(R.id.img1);
+       // img = (ImageView) findViewById(R.id.img1);
 
         windowwidth = getWindowManager().getDefaultDisplay().getWidth();
         windowheight = getWindowManager().getDefaultDisplay().getHeight();
@@ -81,11 +83,38 @@ public class Splash_Activity extends AppCompatActivity {
             editor.commit();
         } else {
             //You already have the permission, just go ahead.
-            StartAnimations();
+            //StartAnimations();
+            proceedAfterPermission();
         }
 
 
     }
+    private void proceedAfterPermission() {
+       /* LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            //  buildAlertMessageNoGps();
+            noLocation();
+        }else {*/
+        background = new Thread() {
+            public void run() {
+                try {
+                    sleep(4 * 1000);
+                    Intent inty = new Intent(getApplication(), New_DashBoard_Activity_Tab.class);
+                    startActivity(inty);
+                    //overridePendingTransition(R.anim.s, R.anim.slide_to_left);
+                    finish();
+
+                } catch (Exception ev) {
+                    System.out.print(ev.getMessage());
+                }
+            }
+        };
+        background.start();
+
+        //StartAnimations();
+
+    }
+
 
     private void StartAnimations() {
         RelativeLayout root = (RelativeLayout)findViewById( R.id.parentLay);
@@ -96,19 +125,19 @@ public class Splash_Activity extends AppCompatActivity {
         int statusBarOffset = dm.heightPixels - root.getMeasuredHeight();
 
         int originalPos[] = new int[2];
-        img.getLocationOnScreen( originalPos );
+      //  img.getLocationOnScreen( originalPos );
 
         TranslateAnimation anim = new TranslateAnimation(0, 0, dm.heightPixels, (float) (dm.heightPixels/3.5) );
         anim.setDuration(3000);
         anim.setFillAfter(true);
-        img.startAnimation(anim);
+       // img.startAnimation(anim);
 
         anim.setAnimationListener(new Animation.AnimationListener() {
 
             @Override
             public void onAnimationEnd(Animation arg0) {
 
-                    Intent i = new Intent(Splash_Activity.this, LoginActivity.class);
+                    Intent i = new Intent(Splash_Activity.this, New_DashBoard_Activity_Tab.class);
                     startActivity(i);
                     finish();
 

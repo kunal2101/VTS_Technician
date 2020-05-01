@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity">
+    <RelativeLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/toolbar" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/lin_top"
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:layout_below="@+id/toolbarLayout"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/fare_layout"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:background="#2ac6b1"
+            android:padding="10dip">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ImeniNo"
+                        android:textColor="@color/smoke_white"
+                        android:textSize="15dip"
+                        android:fontFamily="@font/robotobold"  />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dip"
+                        android:text="ImeiNo"
+                        android:visibility="gone"
+                        android:textColor="@color/smoke_white"
+                        android:textSize="18dip"
+                        android:fontFamily="@font/roboto_regular"
+                       />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtImeiNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dip"
+                    android:text="45784213368"
+                    android:textColor="@color/smoke_white"
+                    android:textSize="18dip"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/txtLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:text="Raw Data Detail.."
+                android:textColor="@color/smoke_white"
+                android:textSize="12dip"
+                android:textStyle="bold"
+                 />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ticket_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#edcc4d"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DeviceId"
+                    android:textColor="@color/smoke_white"
+                    android:textSize="15dip"
+                    android:fontFamily="@font/robotobold"/>
+
+                <TextView
+                    android:id="@+id/txtDeviceId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4587856"
+                    android:textColor="@color/smoke_white"
+                    android:textSize="20dip"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="3dip"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passenger_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="#eb7e62"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textColor="@color/smoke_white"
+                    android:textSize="15dip"
+                    android:fontFamily="@font/robotobold"/>
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16/05/2019"
+                    android:textColor="@color/smoke_white"
+                    android:textSize="20dip"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="3dip"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/title_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e7e7e6"
+        android:padding="5dip"
+        android:layout_below="@+id/lin_top"
+        android:text="Raw Data Details "
+        android:textColor="@color/bill_back_color"
+        android:textSize="16dip"
+        android:textStyle="bold"
+         />
+
+    <View
+        android:id="@+id/view_one"
+        android:layout_width="match_parent"
+        android:layout_height="5dip"
+        android:layout_below="@+id/title_txt"
+        android:background="#c8c8c6" />
+    <TableLayout
+        android:id="@+id/tabl_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_one"
+        android:background="#c8c8c6">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"
+                android:background="#e7e7e6"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="id"
+                android:textColor="#868686"
+                android:textSize="10dip"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_regular" />
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dip"
+                android:layout_weight="1"
+                android:background="#e7e7e6"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text="Raw Data"
+                android:textColor="#868686"
+                android:textSize="10dip"
+                android:textStyle="bold"
+               android:fontFamily="@font/roboto_regular"/>
+
+
+        </TableRow>
+    </TableLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tabl_one"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAddImeiNO"
+        android:layout_marginLeft="22.1dp"
+        android:layout_marginRight="21.1dp"
+        android:layout_marginTop="22.1dp"
+        android:background="@drawable/rectangle"
+        android:fontFamily="@font/roboto_regular"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="LOAD MORE DATA"
+
+        android:layout_alignParentBottom="true"
+        android:textColor="#ffffff"
+        android:textSize="14.4sp" />
+
+
+
+</RelativeLayout>

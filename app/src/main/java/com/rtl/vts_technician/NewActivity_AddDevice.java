@@ -1,20 +1,28 @@
 package com.rtl.vts_technician;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,71 +33,106 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.rtl.vts_technician.Constants.Utility;
+import com.rtl.vts_technician.Database.DatabaseHelper;
+import com.rtl.vts_technician.model.NewInstallDeviceModel;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class NewActivity_AddDevice extends AppCompatActivity {
     ImageView pimage;
     TextView pName,txtDepo,txtDivision,txtImeiNo,txtInstaDate,txtRemarks,tv_latlong,txtInstaFromTime;
-    EditText txtDeviceId, txtDate, txtLocation, txtHod, txtVehicleNo;
+    EditText txtDeviceId, txtDate, txtLocation, txtVehicleNo, txtVehicle;
     Button btnSubmit,btn_getlatlong;
-
     DatePickerDialog picker;
-    TimePickerDialog TpPickerDialog;
     GPSTracker gps;
     ProgressDialog pdialog;
-
+    DatabaseHelper dbHelper;
     double latitude,longitude;
     String response = null;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+    ImageView form_image;
+    Button btn_uploadPhoto;
+    private String userChoosenTask;
+    private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+    private String encoded;
+    private static final int MY_CAMERA_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_activity__add_device);
+        setContentView( R.layout.new_activity__add_device);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tools);
+        Toolbar toolbar = (Toolbar) findViewById( R.id.tools);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_arrow_back);
-        upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
+        final Drawable upArrow = getResources().getDrawable( R.mipmap.ic_arrow_back);
+        upArrow.setColorFilter(getResources().getColor( R.color.white), PorterDuff.Mode.SRC_ATOP);
         getSupportActionBar().setHomeAsUpIndicator(upArrow);
         toolbar.setTitleTextColor(Color.WHITE);
 
-        pName           = (TextView) findViewById(R.id.pname);
+        pName           = (TextView) findViewById( R.id.pname);
         pName.setText("Entry Form");
-        txtDepo         = (TextView) findViewById(R.id.txtDepo);
-        txtDivision     =  (TextView) findViewById(R.id.txtDivision);
-        txtImeiNo       =   (TextView) findViewById(R.id.txtImeiNo);
-        txtInstaDate    =   (TextView) findViewById(R.id.txtInstaDate);
-        txtRemarks      =    (TextView) findViewById(R.id.txtRemarks);
-        tv_latlong      =  (TextView)  findViewById(R.id.tv_latlong);
-        txtInstaFromTime=  (TextView)  findViewById(R.id.txtInstaFromTime);
-        pimage          = (ImageView) findViewById(R.id.pimage);
-        txtVehicleNo    = (EditText) findViewById(R.id.txtVehicleNo);
-        txtHod          = (EditText) findViewById(R.id.txtHod);
-        txtLocation     = (EditText) findViewById(R.id.txtLocation);
-        txtDate         = (EditText) findViewById(R.id.txtDate);
-        txtDeviceId     = (EditText) findViewById(R.id.txtDeviceId);
-        btnSubmit       = (Button) findViewById(R.id.btnSubmit);
-        btn_getlatlong  = (Button) findViewById(R.id.btn_getlatlong);
 
+        dbHelper = new DatabaseHelper (this);
+
+        txtDepo         = (TextView) findViewById( R.id.txtDepo);
+        txtDivision     =  (TextView) findViewById( R.id.txtDivision);
+        txtImeiNo       =   (TextView) findViewById( R.id.txtImeiNo);
+        txtInstaDate    =   (TextView) findViewById( R.id.txtInstaDate);
+        txtRemarks      =    (TextView) findViewById( R.id.txtRemarks);
+        tv_latlong      =  (TextView)  findViewById( R.id.tv_latlong);
+        txtInstaFromTime=  (TextView)  findViewById( R.id.txtInstaFromTime);
+        pimage          = (ImageView) findViewById( R.id.pimage);
+        txtVehicleNo    = (EditText) findViewById( R.id.txtVehicleNo);
+        //txtHod          = (EditText) findViewById(R.id.txtHod);
+        txtLocation     = (EditText) findViewById( R.id.txtLocation);
+        txtDate         = (EditText) findViewById( R.id.txtDate);
+        txtDeviceId     = (EditText) findViewById( R.id.txtDeviceId);
+        btnSubmit       = (Button) findViewById( R.id.btnSubmit);
+        btn_getlatlong  = (Button) findViewById( R.id.btn_getlatlong);
+        txtVehicle      = (EditText) findViewById( R.id.txtVehicle);
+
+        form_image      =   (ImageView) findViewById( R.id.form_image);
+        btn_uploadPhoto =   (Button) findViewById( R.id.btn_uploadPhoto);
+
+        btn_uploadPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
+                    }else{
+                        selectImage();
+                    }
+                }
+
+            }
+        });
 
        // dialogOpenForHODList();
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
+
+        txtDivision.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                dialogOpenForDivisionList();
             }
         });
-        txtDepo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialogOpenForDEPOList();
-            }
-        });
+
         txtRemarks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,6 +146,13 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 dialogOpenForIMEIist();
             }
         });
+
+        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+
+        txtInstaDate.setText(currentDate);
+        txtInstaFromTime.setText(currentTime);
+
         txtInstaDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,11 +161,11 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 int month = cldr.get(Calendar.MONTH);
                 int year = cldr.get(Calendar.YEAR);
                 // date picker dialog
-                picker = new DatePickerDialog(NewActivity_AddDevice.this,
+                picker = new DatePickerDialog( NewActivity_AddDevice.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txtInstaDate.setText("Selected Date : "+dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                txtInstaDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
@@ -129,10 +179,10 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
-                mTimePicker = new TimePickerDialog(NewActivity_AddDevice.this, new TimePickerDialog.OnTimeSetListener() {
+                mTimePicker = new TimePickerDialog( NewActivity_AddDevice.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        txtInstaFromTime.setText( "Selected Time : "+selectedHour + ":" + selectedMinute);
+                        txtInstaFromTime.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Time");
@@ -140,8 +190,6 @@ public class NewActivity_AddDevice extends AppCompatActivity {
 
             }
         });
-
-
 
         btn_getlatlong.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,14 +199,151 @@ public class NewActivity_AddDevice extends AppCompatActivity {
             }
         });
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               String depo = txtDepo.getText().toString().trim();
+               String division = txtDivision.getText().toString().trim();
+               String imieno = txtImeiNo.getText().toString().trim();
+               String instantDate = txtInstaDate.getText().toString().trim();
+               String instantTime = txtInstaFromTime.getText().toString().trim();
+               String remarks = txtRemarks.getText().toString().trim();
+               String vehNo = txtVehicleNo.getText().toString().trim();
+               String address = tv_latlong.getText().toString().trim();
+
+                if (TextUtils.isEmpty(txtVehicleNo.getText().toString().trim())){
+                    Toast.makeText( NewActivity_AddDevice.this, "Enter vehicle no.", Toast.LENGTH_LONG).show();
+                }else if (depo.equals("Select Depo")){
+                    Toast.makeText( NewActivity_AddDevice.this, "Select Depo Name.", Toast.LENGTH_LONG).show();
+                }else if (imieno.equals("Select IMEI No")){
+                    Toast.makeText( NewActivity_AddDevice.this, "Select IMIE no.", Toast.LENGTH_LONG).show();
+                }else if (remarks.equals("Choose Remarks")){
+                    Toast.makeText( NewActivity_AddDevice.this, "Select remarks", Toast.LENGTH_LONG).show();
+                }else if (instantTime.equals("Installation Time")){
+                    Toast.makeText( NewActivity_AddDevice.this, "Set Installation Time", Toast.LENGTH_LONG).show();
+                }else if (instantDate.equals("Installation Date")){
+                    Toast.makeText( NewActivity_AddDevice.this, "Set Installation Date", Toast.LENGTH_LONG).show();
+                }else if (TextUtils.isEmpty(tv_latlong.getText().toString().trim())){
+                    Toast.makeText( NewActivity_AddDevice.this, "Address should not be empty", Toast.LENGTH_LONG).show();
+                }else if (dbHelper.searchVehicle(vehNo)){
+                    Toast.makeText( NewActivity_AddDevice.this, "Vehicle no. already Installed", Toast.LENGTH_LONG).show();
+                }else{
+                    dbHelper.insertNewData(new NewInstallDeviceModel (vehNo, depo, division, imieno, remarks, instantTime, instantDate, String.valueOf(latitude), String.valueOf(longitude), address));
+                    Toast.makeText( NewActivity_AddDevice.this, "Data saved sucesfully", Toast.LENGTH_LONG).show();
+
+                    txtDepo.setText("Select Depo");
+                    txtDivision.setText("");
+                    txtImeiNo.setText("Select IMEI No");
+                    txtVehicleNo.setText("");
+                    txtInstaDate.setText("Installation Date");
+                    txtInstaFromTime.setText("Installation Time");
+                    txtRemarks.setText("Choose Remarks");
+                    tv_latlong.setText("Current Location");
+                }
+            }
+        });
 
     }
+
+    private void selectImage() {
+        final CharSequence[] items = {"Take Photo", "Cancel"};
+        // final CharSequence[] items = { "Take Photo", "Take From Gallery", "Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Add Photo!");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                boolean result = Utility.checkPermission( NewActivity_AddDevice.this);
+
+                if (items[item].equals("Take Photo")) {
+                    userChoosenTask = "Take Photo";
+                    if (result)
+                        cameraIntent();
+                }
+
+                // As per Need need to be uncomment for take image from gallery
+                /* else if (items[item].equals("Choose from Library")) {
+                    userChoosenTask ="Choose from Library";
+                    if(result)
+                        galleryIntent();
+
+                } */
+                else if (items[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private void cameraIntent() {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, REQUEST_CAMERA);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == MY_CAMERA_REQUEST_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == SELECT_FILE) {
+                // onSelectFromGalleryResult(data);
+            }else if (requestCode == REQUEST_CAMERA) {
+                onCaptureImageResult(data);
+            }
+        }
+    }
+
+    private void onCaptureImageResult(Intent data) {
+        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 50, bytes);
+
+        File destination = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis() + ".jpg");
+
+        FileOutputStream fo;
+        try {
+            destination.createNewFile();
+            fo = new FileOutputStream(destination);
+            fo.write(bytes.toByteArray());
+            fo.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        form_image.setImageBitmap(thumbnail);
+
+        BitmapDrawable drawable = (BitmapDrawable) form_image.getDrawable();
+        Bitmap imageBitmap = drawable.getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        imageBitmap.compress(Bitmap.CompressFormat.PNG, 50, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        encoded = Base64.encodeToString(byteArray, Base64.NO_WRAP);
+
+    }
+
 
     @SuppressLint("NewApi")
     public void getAddress() {
         // create class object
 
-        gps = new GPSTracker(NewActivity_AddDevice.this);
+        gps = new GPSTracker ( NewActivity_AddDevice.this);
 
         // check if GPS enabled
         if (gps.canGetLocation()) {
@@ -180,7 +365,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             if (pdialog == null) {
-                pdialog = new ProgressDialog(NewActivity_AddDevice.this);
+                pdialog = new ProgressDialog( NewActivity_AddDevice.this);
                 pdialog.setCancelable(false);
                 pdialog.setMessage("Please Wait...");
                 pdialog.show();
@@ -229,18 +414,18 @@ public class NewActivity_AddDevice extends AppCompatActivity {
 
 
             tv_latlong.setText(response);
-            tv_latlong.setTextColor(getResources().getColor(R.color.black));
+            tv_latlong.setTextColor(getResources().getColor( R.color.black));
 
         }
     }
 
-    private void dialogOpenForDEPOList() {
+    private void dialogOpenForDivisionList() {
 
         final ArrayList<String> hod_str = new ArrayList<String>();
         final ArrayList<String> hod_id = new ArrayList<String>();
 
         hod_id.add("Division 1");hod_id.add("Division 2");hod_id.add("Division 3");hod_id.add("Division 4");hod_id.add("Division 5");
-        hod_str.add("DEPO 1");hod_str.add("DEPO 2");hod_str.add("DEPO 3");hod_str.add("DEPO 4");hod_str.add("DEPO 5");
+        hod_str.add("DEPO d");hod_str.add("DEPO 2");hod_str.add("DEPO 3");hod_str.add("DEPO 4");hod_str.add("DEPO 5");
 
         /*for(int ind = 0 ; ind< dataMechanic.size(); ind++){
             HashMap<String, String> map = new HashMap<String, String>();
@@ -249,9 +434,9 @@ public class NewActivity_AddDevice extends AppCompatActivity {
             mechanic_id.add(map.get("KEY_ID"));
         }*/
 
-        final CharSequence[] dialogList = hod_str.toArray(new CharSequence[hod_str.size()]);
-        final AlertDialog.Builder builderDialog = new AlertDialog.Builder(NewActivity_AddDevice.this);
-        builderDialog.setTitle("Select Depo Name");
+        final CharSequence[] dialogList = hod_id.toArray(new CharSequence[hod_id.size()]);
+        final AlertDialog.Builder builderDialog = new AlertDialog.Builder( NewActivity_AddDevice.this);
+        builderDialog.setTitle("Select Division Name");
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count];
         final String[] getMechanic_str = new String[1];
@@ -271,7 +456,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
+                        Toast.makeText( NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                         ListView list = ((AlertDialog) dialog).getListView();
                         // make selected item in the comma seprated string
                         StringBuilder stringBuilder = new StringBuilder();
@@ -281,10 +466,8 @@ public class NewActivity_AddDevice extends AppCompatActivity {
 
                             if (checked) {
                                  getMechanic_str[0] = list.getItemAtPosition(i).toString();
-                                int hod_index = hod_str.indexOf(getMechanic_str[0]);
-                                 gethod_id[0] = hod_id.get(hod_index);
-
-
+                                int hod_index = hod_id.indexOf(getMechanic_str[0]);
+                                 gethod_id[0] = hod_str.get(hod_index);
 
                                 if (stringBuilder.length() > 0) stringBuilder.append(",");
                                 stringBuilder.append(getMechanic_str[0]);
@@ -297,16 +480,13 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                          */
                         if (stringBuilder.toString().trim().equals("")) {
 
-                            txtDepo.setText("");
+                            txtDivision.setText("");
                             stringBuilder.setLength(0);
-
-
                         } else {
-                            txtDepo.setText(stringBuilder );
-                            txtDivision.setText(gethod_id[0]+"");
-                            Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
+                            txtDivision.setText(stringBuilder );
+                            txtDepo.setText(gethod_id[0]+"");
+                                   Toast.makeText( NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                             // mechType = String.valueOf(stringBuilder);
-
 
                         }
                     }
@@ -316,7 +496,8 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+
+                        txtDivision.setText("Select Depo");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -340,7 +521,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
         }*/
 
         final CharSequence[] dialogList = hod_str.toArray(new CharSequence[hod_str.size()]);
-        final AlertDialog.Builder builderDialog = new AlertDialog.Builder(NewActivity_AddDevice.this);
+        final AlertDialog.Builder builderDialog = new AlertDialog.Builder( NewActivity_AddDevice.this);
         builderDialog.setTitle("Select Imei No");
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count];
@@ -361,7 +542,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
+                        Toast.makeText( NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                         ListView list = ((AlertDialog) dialog).getListView();
                         // make selected item in the comma seprated string
                         StringBuilder stringBuilder = new StringBuilder();
@@ -405,7 +586,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtImeiNo.setText("Select IMEI No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -428,7 +609,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
         }*/
 
         final CharSequence[] dialogList = hod_str.toArray(new CharSequence[hod_str.size()]);
-        final AlertDialog.Builder builderDialog = new AlertDialog.Builder(NewActivity_AddDevice.this);
+        final AlertDialog.Builder builderDialog = new AlertDialog.Builder( NewActivity_AddDevice.this);
         builderDialog.setTitle("Select Remarks");
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count];
@@ -449,7 +630,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
+                        Toast.makeText( NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                         ListView list = ((AlertDialog) dialog).getListView();
                         // make selected item in the comma seprated string
                         StringBuilder stringBuilder = new StringBuilder();
@@ -480,7 +661,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
 
 
                         } else {
-                            txtImeiNo.setText(stringBuilder);
+                            txtRemarks.setText(stringBuilder);
                             // Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                             // mechType = String.valueOf(stringBuilder);
 
@@ -493,7 +674,7 @@ public class NewActivity_AddDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtRemarks.setText("Choose Remarks");
                     }
                 });
         AlertDialog alert = builderDialog.create();

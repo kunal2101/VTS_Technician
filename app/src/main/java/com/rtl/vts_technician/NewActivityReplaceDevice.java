@@ -12,9 +12,10 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,6 +25,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.rtl.vts_technician.Database.DatabaseHelper;
+import com.rtl.vts_technician.model.ReplaceDeviceModel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,13 +41,12 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
     Button btnSubmit,btn_getlatlong;
 
     DatePickerDialog picker;
-    TimePickerDialog TpPickerDialog;
     GPSTracker gps;
     ProgressDialog pdialog;
 
     double latitude,longitude;
     String response = null;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +81,9 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
         btn_getlatlong  = (Button) findViewById(R.id.btn_getlatlong);
 
         pName.setText("Replace Device");
+        dbHelper = new DatabaseHelper(this);
        // dialogOpenForHODList();
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
         txtDepo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,7 +121,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txtInstaDate.setText("Selected Date : "+dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                txtInstaDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
@@ -139,7 +138,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 mTimePicker = new TimePickerDialog(NewActivityReplaceDevice.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        txtInstaFromTime.setText( "Selected Time : "+selectedHour + ":" + selectedMinute);
+                        txtInstaFromTime.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Time");
@@ -147,8 +146,6 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
 
             }
         });
-
-
 
         btn_getlatlong.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,7 +162,52 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
             }
         });
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                String depo = txtDepo.getText().toString().trim();
+                String division = txtDivision.getText().toString().trim();
+                String new_imieno = txtImeiNo.getText().toString().trim();
+                String old_imieno = txtOldImeiNo.getText().toString().trim();
+                String instantDate = txtInstaDate.getText().toString().trim();
+                String instantTime = txtInstaFromTime.getText().toString().trim();
+                String remarks = txtRemarks.getText().toString().trim();
+                String vehNo = txtVehicleNo.getText().toString().trim();
+                String address = tv_latlong.getText().toString().trim();
+
+                if (vehNo.equals("Vehicle No")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Select vehicle no.", Toast.LENGTH_LONG).show();
+                }else if (depo.equals("Select Depo")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Select Depo Name.", Toast.LENGTH_LONG).show();
+                }else if (old_imieno.equals("Old IMEI No")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Select old IMIE no.", Toast.LENGTH_LONG).show();
+                }else if (new_imieno.equals("New IMEI No")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Select new IMIE no.", Toast.LENGTH_LONG).show();
+                }else if (remarks.equals("Choose Remarks")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Select remarks", Toast.LENGTH_LONG).show();
+                }else if (instantTime.equals("Installation Time")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Set Installation Time", Toast.LENGTH_LONG).show();
+                }else if (instantDate.equals("Installation Date")){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Set Installation Date", Toast.LENGTH_LONG).show();
+                }else if (TextUtils.isEmpty(tv_latlong.getText().toString().trim())){
+                    Toast.makeText(NewActivityReplaceDevice.this, "Address should not be empty", Toast.LENGTH_LONG).show();
+                }else{
+                    dbHelper.insertReplaceData(new ReplaceDeviceModel(vehNo, depo, division, new_imieno,old_imieno, remarks, instantTime, instantDate, String.valueOf(latitude), String.valueOf(longitude), address));
+                    Toast.makeText(NewActivityReplaceDevice.this, "Data saved sucesfully", Toast.LENGTH_LONG).show();
+
+                    txtDepo.setText("Depo Name");
+                    txtDivision.setText("");
+                    txtImeiNo.setText("New IMEI No");
+                    txtOldImeiNo.setText("Old IMEI No");
+                    txtVehicleNo.setText("Vehicle No");
+                    txtInstaDate.setText("Installation Date");
+                    txtInstaFromTime.setText("Installation Time");
+                    txtRemarks.setText("Remarks");
+                    tv_latlong.setText("Current Location");
+                }
+            }
+        });
     }
 
     @SuppressLint("NewApi")
@@ -265,7 +307,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
 
         final CharSequence[] dialogList = hod_str.toArray(new CharSequence[hod_str.size()]);
         final AlertDialog.Builder builderDialog = new AlertDialog.Builder(NewActivityReplaceDevice.this);
-        builderDialog.setTitle("Select Depo Name");
+        builderDialog.setTitle("Select Vehicle No.");
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count];
         final String[] getMechanic_str = new String[1];
@@ -330,7 +372,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtVehicleNo.setText("Vehicle No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -421,7 +463,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtDepo.setText("Depo Name");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -509,7 +551,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtOldImeiNo.setText("Old IMEI No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -598,7 +640,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtImeiNo.setText("New IMEI No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -673,7 +715,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
 
 
                         } else {
-                            txtImeiNo.setText(stringBuilder);
+                            txtRemarks.setText(stringBuilder);
                             // Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                             // mechType = String.valueOf(stringBuilder);
 
@@ -686,7 +728,7 @@ public class NewActivityReplaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtRemarks.setText("Remarks");
                     }
                 });
         AlertDialog alert = builderDialog.create();

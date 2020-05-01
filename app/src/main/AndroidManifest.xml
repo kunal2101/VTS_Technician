@@ -2,52 +2,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rtl.vts_technician">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
+        android:name=".volley.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".New_Activity_History_Tab"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" ></activity>
+        <activity android:name=".ActivityDownVehicleList"
+            android:parentActivityName=".ActivityTest"
+            ></activity>
+
+        <activity
+            android:name=".ActivityVehicleDetail"
+            android:parentActivityName=".ActivityTest" />
+        <activity
+            android:name=".New_Activity_History_Tab"
+            android:parentActivityName=".NewMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NewMainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NewActivity_AddDevice"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".New_History_activity"
-            android:screenOrientation="portrait"
+            android:parentActivityName=".NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NewActivityReplaceDevice"
-            android:screenOrientation="portrait"
+            android:parentActivityName=".NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"
+            android:parentActivityName=".ActivityTest"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--
+  <activity
+            android:name=".New_History_activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
             android:name=".ProfileEditActivity"
-            android:screenOrientation="portrait"
+            android:parentActivityName=".ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
         <activity
             android:name=".NewActivityMaintenaceDevice"
-            android:screenOrientation="portrait"
+            android:parentActivityName=".NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splash_Activity"
@@ -59,38 +64,61 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ActivityTest"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Registration_Activity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Activity_AddDevice"
             android:label="Entry Form"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Repair_Device"
             android:label="Repair Device"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".History_activity"
             android:label="Device History"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ApprovedDevice"
             android:label="Approved Device"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".New_DashBoard_Activity_Tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OTPVerifyActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".De_installationActivity"
+            android:parentActivityName=".NewMainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCaOTVsYC795NC7F32XTkkokArnJagEuTI" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>

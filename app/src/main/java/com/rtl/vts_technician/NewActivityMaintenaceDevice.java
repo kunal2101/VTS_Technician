@@ -12,10 +12,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Html;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.rtl.vts_technician.Database.DatabaseHelper;
+import com.rtl.vts_technician.model.MaintainanceDeviceModel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,13 +43,13 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
     Button btnSubmit,btn_getlatlong;
 
     DatePickerDialog picker;
-    TimePickerDialog TpPickerDialog;
+
     GPSTracker gps;
     ProgressDialog pdialog;
 
     double latitude,longitude;
     String response = null;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,13 +86,10 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
         btn_getlatlong  = (Button) findViewById(R.id.btn_getlatlong);
 
         pName.setText("Replace Device");
+
+        dbHelper = new DatabaseHelper(this);
        // dialogOpenForHODList();
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+
         txtDepo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +109,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 dialogOpenForIMEIist();
             }
         });
+
         txtInstaDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,24 +122,25 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txtInstaDate.setText("Selected Date : "+dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                txtInstaDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
             }
         });
+
         txtInstaFromTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-     Calendar mcurrentTime = Calendar.getInstance();
+                Calendar mcurrentTime = Calendar.getInstance();
                 int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker;
                 mTimePicker = new TimePickerDialog(NewActivityMaintenaceDevice.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        txtInstaFromTime.setText( "Selected Time : "+selectedHour + ":" + selectedMinute);
+                        txtInstaFromTime.setText(selectedHour + ":" + selectedMinute);
                     }
                 }, hour, minute, true);//Yes 24 hour time
                 mTimePicker.setTitle("Select Time");
@@ -177,9 +180,66 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
             }
         });
 
-
         txtLastLocation.setText("Pune Railaway Station");
         txtSatus.setText("Status :- Off Road");
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String depo = txtDepo.getText().toString().trim();
+                String division = txtDivision.getText().toString().trim();
+                String imieno = txtImeiNo.getText().toString().trim();
+                String instantDate = txtInstaDate.getText().toString().trim();
+                String instantTime = txtInstaFromTime.getText().toString().trim();
+                String remarks = txtRemarks.getText().toString().trim();
+                String vehNo = txtVehicleNo.getText().toString().trim();
+                String address = tv_latlong.getText().toString().trim();
+                String last_loc = txtLastLocation.getText().toString().trim();
+                String status = txtSatus.getText().toString().trim();
+                String problem_type = txtProbleIden.getText().toString().trim();
+                String acton_taken = txtActionTaken.getText().toString().trim();
+
+                if (vehNo.equals("Vehicle No")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Select vehicle no.", Toast.LENGTH_LONG).show();
+                }else if (depo.equals("Select Depo")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Select Depo Name.", Toast.LENGTH_LONG).show();
+                }else if (imieno.equals("Select IMEI No")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Select IMIE no.", Toast.LENGTH_LONG).show();
+                }else if (remarks.equals("Choose Remarks")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Select remarks", Toast.LENGTH_LONG).show();
+                }else if (instantTime.equals("Installation Time")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Set Installation Time", Toast.LENGTH_LONG).show();
+                }else if (instantDate.equals("Installation Date")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Set Installation Date", Toast.LENGTH_LONG).show();
+                }else if (TextUtils.isEmpty(tv_latlong.getText().toString().trim())){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Address should not be empty", Toast.LENGTH_LONG).show();
+                }else if (TextUtils.isEmpty(txtLastLocation.getText().toString().trim())){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Last Location should not be empty", Toast.LENGTH_LONG).show();
+                }else if (TextUtils.isEmpty(txtSatus.getText().toString().trim())){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Status should not be empty", Toast.LENGTH_LONG).show();
+                }else if (problem_type.equals("Problem Identified")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Select Problem Type", Toast.LENGTH_LONG).show();
+                }else if (txtActionTaken.equals("Action Taken")){
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Choose Action type", Toast.LENGTH_LONG).show();
+                }else{
+
+                    dbHelper.insertMaintainceeData(new MaintainanceDeviceModel(vehNo, depo, division, imieno, last_loc,status,problem_type,acton_taken,remarks, instantTime, instantDate, String.valueOf(latitude), String.valueOf(longitude), address));
+                    Toast.makeText(NewActivityMaintenaceDevice.this, "Data saved sucesfully", Toast.LENGTH_LONG).show();
+
+                    txtDepo.setText("Depo Name");
+                    txtDivision.setText("");
+                    txtImeiNo.setText("IMEI No");
+                    txtVehicleNo.setText("Vehicle No");
+                    txtInstaDate.setText("Installation Date");
+                    txtInstaFromTime.setText("Installation Time");
+                    txtRemarks.setText("Choose Remarks");
+                    tv_latlong.setText("Current Location");
+                    txtProbleIden.setText("Problem Identified");
+                    txtActionTaken.setText("Action Taken");
+                }
+            }
+        });
 
     }
 
@@ -383,7 +443,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtActionTaken.setText("Action Taken");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -472,7 +532,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtProbleIden.setText("Problem Identified");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -497,7 +557,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
 
         final CharSequence[] dialogList = hod_str.toArray(new CharSequence[hod_str.size()]);
         final AlertDialog.Builder builderDialog = new AlertDialog.Builder(NewActivityMaintenaceDevice.this);
-        builderDialog.setTitle("Select Depo Name");
+        builderDialog.setTitle("Select Vehicle No.");
         int count = dialogList.length;
         boolean[] is_checked = new boolean[count];
         final String[] getMechanic_str = new String[1];
@@ -562,7 +622,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtVehicleNo.setText("Vehicle No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -653,7 +713,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtDepo.setText("Depo Name");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -742,7 +802,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtImeiNo.setText("IMEI No");
                     }
                 });
         AlertDialog alert = builderDialog.create();
@@ -817,7 +877,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
 
 
                         } else {
-                            txtImeiNo.setText(stringBuilder);
+                            txtRemarks.setText(stringBuilder);
                             // Toast.makeText(NewActivity_AddDevice.this, getMechanic_str[0] +"----------"+ gethod_id[0], Toast.LENGTH_SHORT).show();
                             // mechType = String.valueOf(stringBuilder);
 
@@ -830,7 +890,7 @@ public class NewActivityMaintenaceDevice extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        txtHod.setText("");
+                        txtRemarks.setText("Choose Remarks");
                     }
                 });
         AlertDialog alert = builderDialog.create();

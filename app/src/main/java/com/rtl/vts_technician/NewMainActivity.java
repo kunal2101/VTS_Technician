@@ -5,29 +5,61 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 public class NewMainActivity extends AppCompatActivity {
     ImageView pimage;
     TextView pName,txt_Logout;
     LinearLayout ly_addDevice, ly_history, ly_replace, ly_maintenance, ly_profile;
+    RelativeLayout rlTop;
+    AppBarLayout Appbar;
+    CollapsingToolbarLayout CoolToolbar;
+    Button btn_installation;
+    Toolbar toolbar;
+    boolean ExpandedActionBar = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tools);
+        setContentView(R.layout.activity_main_test);
+        rlTop=(RelativeLayout)findViewById(R.id.rltop);
+        Appbar = (AppBarLayout)findViewById(R.id.appbar);
+        btn_installation = (Button)findViewById(R.id.btn_installation);
+        CoolToolbar = (CollapsingToolbarLayout)findViewById(R.id.ctolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        final Drawable upArrow = getResources().getDrawable(R.mipmap.ic_arrow_back);
-        upArrow.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
-        toolbar.setTitleTextColor(Color.WHITE);
+        CoolToolbar.setTitle("");
+
+        Appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+                if (Math.abs(verticalOffset) > 200){
+                    ExpandedActionBar = false;
+                    CoolToolbar.setTitle("MSRTC Technician");
+                    rlTop.setVisibility(View.GONE);
+                    invalidateOptionsMenu();
+                } else {
+                    ExpandedActionBar = true;
+                    CoolToolbar.setTitle("");
+                    rlTop.setVisibility(View.VISIBLE);
+                    invalidateOptionsMenu();
+                }
+            }
+        });
+
         ly_addDevice    = (LinearLayout) findViewById(R.id.ly_addDevice);
         ly_history      = (LinearLayout) findViewById(R.id.ly_history);
         ly_replace      = (LinearLayout) findViewById(R.id.ly_replace);
@@ -35,7 +67,7 @@ public class NewMainActivity extends AppCompatActivity {
         ly_profile      = (LinearLayout) findViewById(R.id.ly_profile);
 
         txt_Logout      =  (TextView)     findViewById(R.id.txt_Logout);
-        ly_addDevice.setOnClickListener(new View.OnClickListener() {
+        btn_installation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent iin = new Intent(NewMainActivity.this, NewActivity_AddDevice.class);
@@ -59,6 +91,7 @@ public class NewMainActivity extends AppCompatActivity {
 
             }
         });
+
         ly_maintenance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

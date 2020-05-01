@@ -1,24 +1,14 @@
 package com.rtl.vts_technician;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Base64;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
-
-import java.io.ByteArrayOutputStream;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -30,36 +20,35 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        super.onCreate ( savedInstanceState );
+        setContentView ( R.layout.activity_profile );
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bars);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = ( Toolbar ) findViewById ( R.id.tool_bars );
+        setSupportActionBar ( toolbar );
+        getSupportActionBar ( ).setDisplayHomeAsUpEnabled ( true );
 
 
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener ( new View.OnClickListener ( ) {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick ( View v ) {
+                finish ( );
             }
-        });
+        } );
 
-        Log.d("Gitcheck","Git Check On server ");
-        Log.d("Diwash ka G12","G to L KAro");
-        pName           = (TextView) findViewById(R.id.pname);
-        pName.setText("Profile");
+        Log.d ( "Gitcheck" , "Git Check On server " );
+        Log.d ( "Diwash ka G12" , "G to L KAro" );
+        pName = ( TextView ) findViewById ( R.id.pname );
+        pName.setText ( "Profile" );
 
         //preferenceHelper = new PreferenceHelper(ProfileActivity.this);
 
-        btnEditProfile    = (Button)findViewById(R.id.btnEditProfile);
-        btnChangePassword = (Button)findViewById(R.id.btnChangePassword);
-        name_txt          = (TextView)findViewById(R.id.name_txt);
-        email_txt         = (TextView)findViewById(R.id.email_txt);
-        mobile_txt        = (TextView)findViewById(R.id.mobile_txt);
-        address_txt       = (TextView)findViewById(R.id.address_txt);
-       // profileuserPic    = (com.rapl.utils.CircleImageview)findViewById(R.id.profileuserPic);
+        btnEditProfile = ( Button ) findViewById ( R.id.btnEditProfile );
+        btnChangePassword = ( Button ) findViewById ( R.id.btnChangePassword );
+        name_txt = ( TextView ) findViewById ( R.id.name_txt );
+        email_txt = ( TextView ) findViewById ( R.id.email_txt );
+        mobile_txt = ( TextView ) findViewById ( R.id.mobile_txt );
+        address_txt = ( TextView ) findViewById ( R.id.address_txt );
+        // profileuserPic    = (com.rapl.utils.CircleImageview)findViewById(R.id.profileuserPic);
 
      /*   if(preferenceHelper.getProfileImage() == null){
             Toast.makeText(ProfileActivity.this,"Uplaod Your Image",Toast.LENGTH_LONG).show();
@@ -76,19 +65,18 @@ public class ProfileActivity extends AppCompatActivity {
             }*/
 
 
-
-        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+        btnEditProfile.setOnClickListener ( new View.OnClickListener ( ) {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, ProfileEditActivity.class);
-                intent.putExtra("name",name_txt.getText().toString());
-                intent.putExtra("mobile",mobile_txt.getText().toString());
-                intent.putExtra("email",email_txt.getText().toString());
-                intent.putExtra("address",address_txt.getText().toString());
-                startActivity(intent);
-                finish();
+            public void onClick ( View v ) {
+                Intent intent = new Intent ( ProfileActivity.this , ProfileEditActivity.class );
+                intent.putExtra ( "name" , name_txt.getText ( ).toString ( ) );
+                intent.putExtra ( "mobile" , mobile_txt.getText ( ).toString ( ) );
+                intent.putExtra ( "email" , email_txt.getText ( ).toString ( ) );
+                intent.putExtra ( "address" , address_txt.getText ( ).toString ( ) );
+                startActivity ( intent );
+                finish ( );
             }
-        });
+        } );
 
 /*
         btnChangePassword.setOnClickListener(new View.OnClickListener() {
@@ -100,7 +88,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 */
-
 
 
     }

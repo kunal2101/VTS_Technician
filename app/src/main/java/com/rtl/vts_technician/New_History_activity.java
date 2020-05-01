@@ -1,3 +1,4 @@
+/*
 package com.rtl.vts_technician;
 
 import android.graphics.Color;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.rtl.vts_technician.adapter.HistoryListAdapter;
 import com.rtl.vts_technician.adapter.New_HistoryListAdapter;
 import com.rtl.vts_technician.model.DeviceModel;
+import com.rtl.vts_technician.model.NewInstallDeviceModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ public class New_History_activity extends AppCompatActivity {
     TextView pName;
     RecyclerView historyRecyclerView;
     private New_HistoryListAdapter historyListAdapter;
-    private List<DeviceModel> historyList = new ArrayList<>();
+    private List<NewInstallDeviceModel> historyList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,3 +88,4 @@ public class New_History_activity extends AppCompatActivity {
 
     }
 }
+*/

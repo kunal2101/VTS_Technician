@@ -79,7 +79,7 @@
                         android:text="Edit Profile"
                         android:textColor="@color/black"
                         android:textSize="0dip"/>-->
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <EditText
@@ -93,8 +93,8 @@
                             android:gravity="center_vertical"
                             android:inputType="text"
                             android:hint="Name"/>
-                    </android.support.design.widget.TextInputLayout>
-                    <android.support.design.widget.TextInputLayout
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dip">
@@ -109,7 +109,7 @@
                             android:hint="Email Address"
                             android:inputType="textMultiLine|textEmailAddress"
                             android:gravity="center_vertical"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
@@ -125,7 +125,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="1dip"
                 android:textSize="0dip"/>-->
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
@@ -140,13 +140,13 @@
                     android:inputType="phone"
                     android:layout_marginTop="2dip"
                     android:gravity="center_vertical"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <!-- end edit Bio row -->
 
 
 
             <!-- Address Label -->
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText android:id="@+id/input_address"
@@ -158,7 +158,7 @@
                     android:textColor="@color/black"
                     android:layout_marginTop="2dip"
                     android:drawableLeft="@drawable/ic_address"/>
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
