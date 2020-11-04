@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DaywaiseActivityDetailReport"
+    android:background="@color/white">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/tools"
+        />
+
+    <LinearLayout
+        android:id="@+id/tableHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card1"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#c8c8c6" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c8c8c6">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                    android:background="#e7e7e6"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Sr. No."
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="10dip" />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight="1"
+                    android:background="#e7e7e6"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:text="Date"
+                    android:textColor="#000000"
+                    android:textSize="10dip" />
+
+                <RelativeLayout
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#e7e7e6"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_details"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+            </TableRow>
+        </TableLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#c8c8c6" />
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tableHead"
+        android:dividerHeight="0dp"
+        android:groupIndicator="@null"
+        android:indicatorLeft="@null" />
+
+</LinearLayout>

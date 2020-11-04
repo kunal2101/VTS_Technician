@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- start table header -->
+    <LinearLayout
+        android:id="@+id/childTableHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c8c8c6">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Name"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Install"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip" />
+
+                <TextView
+                    android:id="@+id/txtxxx"
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
+                     android:padding="5dp"
+                    android:layout_marginLeft="1dp"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:text="De-Install"
+                    android:textColor="#ffffff"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:fadingEdge="horizontal"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:scrollHorizontally="true"
+                    android:textSize="10dip" />
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Replace"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip"
+                    />
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="OEM"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#eb7e62"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Total"
+                    android:textColor="#ffffff"
+                    android:textSize="10dip"/>
+
+            </TableRow>
+        </TableLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#c8c8c6" />
+    </LinearLayout>
+    <!-- end table header -->
+
+    <!-- start table row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#c8c8c6">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#c8c8c6">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+
+                    android:id="@+id/txtName"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#f1f1f1"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:text="Name"
+                    android:textColor="#434343"
+                    android:textSize="12dip"
+                  />
+
+                <TextView
+                    android:id="@+id/txtInstall"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textColor="#434343"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/txtUninstall"
+
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="#434343"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/txtmaintain"
+
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textColor="#434343"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/txtReplace"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text=""
+                    android:textColor="#434343"
+                    android:textSize="12dip" />
+                <TextView
+                    android:id="@+id/txttot"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1dip"
+                    android:layout_weight=".5"
+                    android:background="#f1f1f1"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:textColor="#0E8378"
+                    android:textSize="12dip" />
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+    <!-- end table row -->
+
+
+</LinearLayout>

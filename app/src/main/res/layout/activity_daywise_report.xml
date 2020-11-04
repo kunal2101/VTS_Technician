@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.DaywiseActivityReport">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/tools" />
+
+    <LinearLayout
+        android:layout_below="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2.5dp"
+            android:background="#db4437"
+            android:layout_marginLeft="150dp"
+            android:layout_marginRight="150dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@null"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="Performance Summary Report"
+            android:textColor="@color/error_color"
+            android:textSize="16dip" />
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_date" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:text="From Date : "
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+                <TextView
+                    android:id="@+id/txtFromDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_date" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:text="To Date : "
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+                <TextView
+                    android:id="@+id/txtToDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:fontFamily="serif"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:text="Select Division"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dip" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_division" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinner_division"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <!-- <TextView
+                     android:id="@+id/txtdivision"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginLeft="5dp"
+                     android:background="@null"
+                     android:fontFamily="serif"
+                     android:gravity="center_vertical"
+                     android:inputType="text"
+                     android:hint="Select Division"
+                     android:textColorHint="@color/dark_blue"
+                     android:textColor="@color/dark_blue"
+                     android:textSize="16dip" />
+-->
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:fontFamily="serif"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:text="Select Technician"
+                android:textColor="@color/dark_blue"
+                android:textSize="16dip" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_users" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinner_Tech"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <!--<TextView
+                    android:id="@+id/txtTech"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:textColorHint="@color/dark_blue"
+                    android:hint="Select Technician"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />-->
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnShow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/rect_blue_cornor"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:padding="12.5dp"
+            android:layout_marginTop="20dp"
+            android:text="Show Report"
+            android:textAllCaps="false"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="13.5sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

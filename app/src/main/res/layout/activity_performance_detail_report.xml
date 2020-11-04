@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PerformanceDetailReport"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_toolbar"
+        android:id="@+id/tools"
+        />
+
+    <include
+        layout="@layout/search_tool" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/recyclerview_bg"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/txt_selectedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected Date"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/headerColor"
+            android:textSize="16sp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyle_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="3dp"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

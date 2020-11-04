@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.LoginType_fragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_msrtc" />
+
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_above="@+id/btnAdmin"
+            android:text="Choose Login Type"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="cursive" />
+
+
+        <Button
+            android:id="@+id/btnAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/btn_black"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:padding="12.5dp"
+            android:layout_centerInParent="true"
+            android:text="Admin"
+            android:textAllCaps="false"
+            android:elevation="10dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnTech"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/btn_black"
+            android:fontFamily="@font/sf_pro_display_medium"
+            android:padding="12.5dp"
+            android:elevation="10dp"
+            android:layout_below="@+id/btnAdmin"
+            android:layout_marginTop="10dp"
+            android:text="Technician"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:text="Version 1.4"
+            android:layout_margin="5dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="10sp" />
+
+    </RelativeLayout>
+</FrameLayout>
