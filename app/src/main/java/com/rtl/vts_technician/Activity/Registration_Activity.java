@@ -192,7 +192,7 @@ public class Registration_Activity extends AppCompatActivity {
 
                         for (int i = 0; i < list.getCount(); i++) {
                             boolean checked = list.isItemChecked(i);
-
+// All commited
                             if (checked) {
 
                                 String getDiv_str = list.getItemAtPosition(i).toString();
