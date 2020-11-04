@@ -2,24 +2,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-   >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ip_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/dark_blue"
-        >
 
-    <EditText
-        android:id="@+id/forget_password_email"
+    <LinearLayout
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:inputType="textEmailAddress"
-        android:drawableLeft="@mipmap/ic_desig"
-        android:hint="Enter New Imeino/ Device Change" />
-</com.google.android.material.textfield.TextInputLayout>
+        android:layout_centerInParent="true"
+        android:layout_height="55dip"
+        android:layout_marginLeft="8dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginRight="8dip"
+        android:visibility="visible"
+        android:background="@drawable/bg_gray_corner_circular"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:background="@drawable/ic_imeino"
+            android:layout_marginTop="5dp"
+            />
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spinner_imie_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/dark_blue"
+            android:layout_marginRight="5dp"
+            app:hintText="Choose IMIE NO"
+
+            />
+
+    </LinearLayout>
 
 </RelativeLayout>

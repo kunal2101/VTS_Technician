@@ -34,51 +34,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:id="@+id/userPicLay"
-                    android:layout_width="0dip"
-                    android:layout_height="0dip"
-                    android:paddingTop="15dip">
-
-                    <ImageView
-                        android:id="@+id/profilePic"
-                        android:layout_width="105dip"
-                        android:layout_height="105dip"
-                        android:src="@drawable/avatar"
-                        android:scaleType="fitXY"/>
-
-                    <Button
-                        android:id="@+id/btn_change_pic"
-                        android:layout_width="105dip"
-                        android:layout_height="26dip"
-                        android:text="Change"
-                        android:gravity="center"
-                        android:textColor="@drawable/txt_selector_white"
-                        android:background="#cc000000"
-                        android:layout_alignBottom="@+id/profilePic"/>
-
-                    <!-- <Button
-                         android:id="@+id/btnUpload"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:background="@drawable/btn_orange"
-                         android:layout_margin="5dip"/>-->
-
-                </RelativeLayout>
                 <LinearLayout
                     android:id="@+id/userNameLay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:background="@drawable/recycle_rect"
                     android:paddingLeft="0dip">
 
-                    <!--<TextView
-                        android:id="@+id/editNameLabel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Edit Profile"
-                        android:textColor="@color/black"
-                        android:textSize="0dip"/>-->
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -88,8 +52,9 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:drawableLeft="@drawable/ic_user"
-                            android:textColorHint="@color/app_back_color"
+                            android:textColorHint="@color/skyblue"
                             android:textSize="16dip"
+                            android:enabled="false"
                             android:gravity="center_vertical"
                             android:inputType="text"
                             android:hint="Name"/>
@@ -103,28 +68,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/app_back_color"
+                            android:textColorHint="@color/skyblue"
                             android:drawableLeft="@drawable/ic_email"
                             android:textSize="16dip"
-                            android:hint="Email Address"
+                            android:hint="Employe ID"
+                            android:enabled="false"
                             android:inputType="textMultiLine|textEmailAddress"
                             android:gravity="center_vertical"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                </LinearLayout>
-
-            </LinearLayout>
-            <!-- end row one -->
-
-            <!-- start edit Bio row -->
-            <!--<TextView
-                android:id="@+id/editBioLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email Address"
-                android:textColor="@color/black"
-                android:layout_marginTop="1dip"
-                android:textSize="0dip"/>-->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -133,84 +85,136 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/app_back_color"
+                    android:textColorHint="@color/skyblue"
                     android:drawableLeft="@drawable/ic_mobile"
                     android:textSize="16dip"
                     android:hint="Mobile number"
+                    android:enabled="false"
                     android:inputType="phone"
                     android:layout_marginTop="2dip"
                     android:gravity="center_vertical"/>
             </com.google.android.material.textfield.TextInputLayout>
-            <!-- end edit Bio row -->
 
-
-
-            <!-- Address Label -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <EditText android:id="@+id/input_address"
+                <EditText
+                    android:id="@+id/input_oldpass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="Address"
-                    android:textSize="16dip"
                     android:textColor="@color/black"
+                    android:textColorHint="@color/skyblue"
+                    android:drawableLeft="@mipmap/ic_lock"
+                    android:textSize="16dip"
+                    android:hint="Old Password"
+                    android:inputType="text"
                     android:layout_marginTop="2dip"
-                    android:drawableLeft="@drawable/ic_address"/>
+                    android:gravity="center_vertical"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/input_newpass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/skyblue"
+                    android:drawableLeft="@mipmap/ic_lock"
+                    android:textSize="16dip"
+                    android:hint="New Password"
+                    android:inputType="text"
+                    android:layout_marginTop="2dip"
+                    android:gravity="center_vertical"/>
+            </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/btnSave"
+                        android:layout_width="180dip"
+                        android:layout_height="45dip"
+                        android:text="Update Password"
+                        android:textColor="@color/white"
+                        android:textSize="16dip"
+                        android:textAllCaps="false"
+                        android:layout_margin="20dip"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/btn_black"/>
+                </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/recycle_rect"
+                android:orientation="vertical">
+                <TextView
 
-            <!-- start edit email -->
-            <TextView
-                   android:id="@+id/editEmailLabel"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="Payment Mode"
-                   android:textColor="@color/black"
-                   android:layout_marginTop="15dip"
-                   android:textSize="16dip"
-                android:visibility="invisible"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/skyblue"
+                    android:drawableLeft="@drawable/ic_division"
+                    android:textSize="16dip"
+                    android:text="Division"
+                    android:maxLines="3"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"/>
 
-               <RadioGroup
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:id="@+id/genderTxt"
-                   android:layout_centerHorizontal="true"
-                   android:orientation="horizontal"
-                   android:theme="@style/MyRadioButton"
-                   android:visibility="gone">
+                <TextView
+                    android:id="@+id/input_division"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_7"
+                    android:textColorHint="@color/skyblue"
+                    android:textSize="10dip"
+                    android:hint="Division"
+                    android:maxLines="6"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"/>
 
-                   <RadioButton
-                       android:id="@+id/radioMale"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:checked="true"
-                       android:text="By Cash"/>
+                <!-- end edit Bio row -->
+                <TextView
 
-                   <RadioButton
-                       android:id="@+id/radioFemale"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="10dip"
-                       android:text="By Bank" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/skyblue"
+                    android:drawableLeft="@drawable/ic_division"
+                    android:textSize="16dip"
+                    android:text="Depot"
+                    android:maxLines="3"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"/>
 
-               </RadioGroup>
+                <TextView
+                    android:id="@+id/input_depo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_7"
+                    android:textColorHint="@color/skyblue"
+                    android:textSize="10dip"
+                    android:hint="Depot"
+                    android:maxLines="6"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dip"
+                    android:gravity="center_vertical"/>
 
+                <!-- button save -->
+                <Button
+                    android:id="@+id/btnSave_div"
+                    android:layout_width="180dip"
+                    android:layout_height="45dip"
+                    android:text="Update"
+                    android:textColor="@color/white"
+                    android:textSize="16dip"
+                    android:textAllCaps="false"
+                    android:layout_margin="20dip"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/btn_black"/>
+            </LinearLayout>
 
-
-            <!-- button save -->
-            <Button
-                android:id="@+id/btnSave"
-                android:layout_width="160dip"
-                android:layout_height="45dip"
-                android:text="UPDATE"
-                android:textColor="@color/white"
-                android:textSize="16dip"
-                android:layout_margin="20dip"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/btn_black"/>
 
         </LinearLayout>
     </ScrollView>

@@ -47,13 +47,13 @@
 
         <EditText
             android:id="@+id/otpView"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:ems="6"
-            android:maxLength="6"
+            android:ems="4"
+            android:maxLength="4"
             android:gravity="center"
             android:hint="Enter Code"
             android:textColor="@color/primary_text"

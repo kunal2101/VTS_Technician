@@ -2,60 +2,96 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rtl.vts_technician">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
-        android:name=".volley.AppController"
+        android:name=".Volley.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ActivityDownVehicleList"
-            android:parentActivityName=".ActivityTest"
-            ></activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity android:name=".Activity.DaywaiseActivityDetailReport" />
+
+        <activity android:name=".Activity.DaywiseActivityReport"
+            android:parentActivityName=".Activity.AdminDashBoard"/>
 
         <activity
-            android:name=".ActivityVehicleDetail"
-            android:parentActivityName=".ActivityTest" />
+            android:name=".Activity.TechnicianList"
+            android:parentActivityName=".Activity.AdminDashBoard"
+            android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".New_Activity_History_Tab"
-            android:parentActivityName=".NewMainActivity"
+            android:name=".Activity.RegionWiseDownVehicle"
+            android:parentActivityName=".Activity.AdminDashBoard" />
+        <activity
+            android:name=".Activity.PerformanceDetailReport"
+            android:parentActivityName=".Activity.PerformanceReport"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Activity.AdminDashBoard"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".Activity.AdminLogin" />
+        <activity android:name=".Activity.SearchUnmapedVehicle" />
+        <activity
+            android:name=".Activity.ActivityDownVehicleList"
+            android:parentActivityName=".Activity.TechnicianDashboard" />
+        <activity
+            android:name=".Activity.ActivityVehicleDetail"
+            android:parentActivityName=".Activity.ActivityVehicleDetail" />
+        <activity
+            android:name=".Activity.History_Tab_Activity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.PerformanceReport"
+            android:parentActivityName=".Activity.AdminDashBoard"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.Technician_Login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewMainActivity"
+            android:name=".Activity.NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewActivity_AddDevice"
-            android:parentActivityName=".NewMainActivity"
+            android:name=".Activity.AddDevice_Activity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Activity.ProfileActivity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Activity.ProfileEditActivity"
+            android:parentActivityName=".Activity.ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewActivityReplaceDevice"
-            android:parentActivityName=".NewMainActivity"
+            android:name=".Activity.MaintenaceDevice_Activity"
+            android:parentActivityName=".Activity.NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ProfileActivity"
-            android:parentActivityName=".ActivityTest"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <!--
-  <activity
-            android:name=".New_History_activity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-        -->
-        <activity
-            android:name=".ProfileEditActivity"
-            android:parentActivityName=".ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".NewActivityMaintenaceDevice"
-            android:parentActivityName=".NewMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Splash_Activity"
+            android:name=".Activity.Splash_Activity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,61 +100,49 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityTest"
-            android:launchMode="singleTop" />
+            android:name=".Activity.TechnicianDashboard"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden" />
+
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.Registration_Activity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name=".Activity.DashBoard_Activity_Tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Registration_Activity"
+            android:name=".Activity.RawDataResultActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.OTPVerifyActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Activity_AddDevice"
-            android:label="Entry Form"
-            android:parentActivityName=".MainActivity"
+            android:name=".Activity.De_installationActivity"
+            android:parentActivityName=".Activity.NewMainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Repair_Device"
-            android:label="Repair Device"
-            android:parentActivityName=".MainActivity"
+            android:name=".Activity.SearchViewActivity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".History_activity"
-            android:label="Device History"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".ApprovedDevice"
-            android:label="Approved Device"
-            android:parentActivityName=".MainActivity"
+            android:name=".Activity.SearchViewImeiNoActivity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".New_DashBoard_Activity_Tab"
+            android:name=".Activity.AutoSearchViewImeiNoActivity"
+            android:parentActivityName=".Activity.TechnicianDashboard"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".DetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".OTPVerifyActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".De_installationActivity"
-            android:parentActivityName=".NewMainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCaOTVsYC795NC7F32XTkkokArnJagEuTI" />
+            android:value="AIzaSyAnVocT-UekinFqajaQGaPxK4N8Oq6BJkg" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>

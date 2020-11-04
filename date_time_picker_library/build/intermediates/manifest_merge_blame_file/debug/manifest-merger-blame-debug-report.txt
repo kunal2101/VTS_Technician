@@ -21,15 +21,15 @@
 21
 22    <uses-sdk
 23        android:minSdkVersion="16"
-23-->/Users/Kunal/Desktop/RTL_Project/New_tech/VTS_Technician/date_time_picker_library/src/main/AndroidManifest.xml
+23-->E:\AndroidProject\MSRTC\VTS_Technician_1.0.11\date_time_picker_library\src\main\AndroidManifest.xml
 24        android:targetSdkVersion="28" />
-24-->/Users/Kunal/Desktop/RTL_Project/New_tech/VTS_Technician/date_time_picker_library/src/main/AndroidManifest.xml
+24-->E:\AndroidProject\MSRTC\VTS_Technician_1.0.11\date_time_picker_library\src\main\AndroidManifest.xml
 25
 26    <uses-permission android:name="android.permission.VIBRATE" />
-26-->/Users/Kunal/Desktop/RTL_Project/New_tech/VTS_Technician/date_time_picker_library/src/main/AndroidManifest.xml:19:5-66
-26-->/Users/Kunal/Desktop/RTL_Project/New_tech/VTS_Technician/date_time_picker_library/src/main/AndroidManifest.xml:19:22-63
+26-->E:\AndroidProject\MSRTC\VTS_Technician_1.0.11\date_time_picker_library\src\main\AndroidManifest.xml:19:5-66
+26-->E:\AndroidProject\MSRTC\VTS_Technician_1.0.11\date_time_picker_library\src\main\AndroidManifest.xml:19:22-63
 27
 28    <application />
-28-->/Users/Kunal/Desktop/RTL_Project/New_tech/VTS_Technician/date_time_picker_library/src/main/AndroidManifest.xml:21:5-20
+28-->E:\AndroidProject\MSRTC\VTS_Technician_1.0.11\date_time_picker_library\src\main\AndroidManifest.xml:21:5-20
 29
 30</manifest>

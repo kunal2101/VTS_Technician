@@ -10,48 +10,48 @@
         android:id="@+id/tools"
         />
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <ScrollView
         android:id="@+id/scrb"
-        android:layout_below="@+id/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tools"
+        android:layout_marginTop="-6dp"
         android:background="@color/white">
 
         <LinearLayout
             android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imgview_photo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
-                android:visibility="gone"
+                android:layout_marginTop="5dp"
                 android:src="@mipmap/ic_trlogo"
+                android:visibility="gone"
 
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dip"
+                android:fontFamily="serif"
                 android:text="Maintenance Device Form"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dip"
-                android:textStyle="bold"
-                android:fontFamily="serif"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip"/>
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -59,7 +59,7 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_vehicle"/>
+                    android:background="@drawable/ic_vehicle" />
 
 
                 <TextView
@@ -68,50 +68,81 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Vehicle No"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Vehicle No"
                     android:textColor="@color/dark_blue"
                     android:textColorHint="@color/main_grey"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rect_blue_cornor"
+                android:fontFamily="@font/sf_pro_display_medium"
+                android:padding="12.5dp"
+                android:text="Search"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="13.5sp" />
+
             <LinearLayout
+                android:id="@+id/ly_veh_ent"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
-                android:padding="2dip">
+                android:padding="2dip"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_action_name"/>
-                <TextView
-                    android:id="@+id/txtDepo"
+                    android:background="@drawable/ic_vehicle" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_vehno"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Depo Name"
-                    android:fontFamily="serif"
-                    android:inputType="text"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:layout_height="wrap_content"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textColorHint="@color/dark_blue"
+                    android:typeface="serif">
 
+                    <EditText
+                        android:id="@+id/txtVehicle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:background="@null"
+                        android:fontFamily="serif"
+                        android:gravity="center_vertical"
+                        android:hint="Vehicle No."
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/main_grey"
+                        android:textSize="16dip" />
 
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/ly_div_srch"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -119,30 +150,64 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_division"/>
+                    android:background="@drawable/ic_division" />
+
                 <TextView
                     android:id="@+id/txtDivision"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Division"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Division"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
 
-
             <LinearLayout
+                android:id="@+id/ly_div_ent"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_division" />
+
+                <TextView
+                    android:id="@+id/txtDivi_ent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:text="Select Division"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_depo_srch"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -150,29 +215,167 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_imeino"/>
+                    android:background="@drawable/ic_action_name" />
+
+                <TextView
+                    android:id="@+id/txtDepo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:text="Depot"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_depo_ent"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="2dip"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_action_name" />
+
+                <TextView
+                    android:id="@+id/txtDepo_ent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:text="Select Depot"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+                <!--  <ImageView
+                      android:layout_width="35dip"
+                      android:layout_height="35dip"
+                      android:background="@drawable/ic_arrow_down"
+                      android:layout_marginRight="30dp"/>-->
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_imie_srch"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_imeino" />
+
                 <TextView
                     android:id="@+id/txtImeiNo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="IMEI No"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="IMEI No"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ly_imie_ent"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_imeino" />
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spinner_imie"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/dark_blue"
+                    app:hintText="Choose IMIE NO"
+
+                    />
+
+            </LinearLayout>
+
+            <!-- <LinearLayout
+                android:id="@+id/ly_imie_ent"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:visibility="visible"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_imeino" />
+
+                <EditText
+                    android:id="@+id/txtImeiNo_ent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:maxLength="15"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:hint="Enter IMEI No"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -180,19 +383,20 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_imeino"/>
+                    android:background="@drawable/ic_imeino" />
+
                 <TextView
                     android:id="@+id/txtLastLocation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Last Location"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Last Location"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
@@ -201,8 +405,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -210,31 +414,63 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_imeino"/>
+                    android:background="@drawable/ic_time" />
+
+                <TextView
+                    android:id="@+id/txtLasttracking"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:text="Last Tracking Time"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_imeino" />
+
                 <TextView
                     android:id="@+id/txtSatus"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Status"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:hint="Status"
                     android:inputType="text"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
 
-
-
             <LinearLayout
+                android:id="@+id/ly_txt_prob"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -242,28 +478,65 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_remarks"/>
+                    android:background="@drawable/ic_remarks" />
+
                 <TextView
                     android:id="@+id/txtProbleIden"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Problem Identified"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Problem Identified"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/ly_et_prob"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_remarks" />
+
+                <EditText
+                    android:id="@+id/et_ProbleIden"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:hint="Enter Problem Identified"
+                    android:inputType="text"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_actioc_txt"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -271,28 +544,98 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_remarks"/>
+                    android:background="@drawable/ic_remarks" />
+
                 <TextView
                     android:id="@+id/txtActionTaken"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Action Taken"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Action Taken"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/ly_actioc_et"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_remarks" />
+
+                <EditText
+                    android:id="@+id/et_ActionTaken"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:hint="Enter Action Taken"
+                    android:inputType="text"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_replace_imie"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_imeino" />
+
+                <TextView
+                    android:id="@+id/spinner_imie_replace"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:text="Choose IMIE NO"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ly_txt_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -300,31 +643,66 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_remarks"/>
+                    android:background="@drawable/ic_remarks" />
+
                 <TextView
                     android:id="@+id/txtRemarks"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Choose Remarks"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:hint="Choose Remarks"
                     android:inputType="text"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ly_et_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
+                android:background="@drawable/bg_gray_corner_circular"
+                android:gravity="center"
+                android:padding="2dip"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="35dip"
+                    android:layout_height="35dip"
+                    android:background="@drawable/ic_remarks" />
+
+                <EditText
+                    android:id="@+id/et_Remarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@null"
+                    android:fontFamily="serif"
+                    android:gravity="center_vertical"
+                    android:hint="Enter Remarks"
+                    android:inputType="text"
+                    android:textColor="@color/dark_blue"
+                    android:textColorHint="@color/dark_blue"
+                    android:textSize="16dip" />
+
+
+            </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -332,31 +710,31 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_time"/>
+                    android:background="@drawable/ic_time" />
+
                 <TextView
                     android:id="@+id/txtInstaFromTime"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Installation Time"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Visiting Time"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
             </LinearLayout>
-
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_marginLeft="8dip"
-                android:layout_marginRight="8dip"
                 android:layout_marginTop="10dip"
+                android:layout_marginRight="8dip"
                 android:background="@drawable/bg_gray_corner_circular"
                 android:gravity="center"
                 android:padding="2dip">
@@ -364,21 +742,57 @@
                 <ImageView
                     android:layout_width="35dip"
                     android:layout_height="35dip"
-                    android:background="@drawable/ic_date"/>
+                    android:background="@drawable/ic_date" />
+
                 <TextView
                     android:id="@+id/txtInstaDate"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:background="@null"
-                    android:gravity="center_vertical"
-                    android:text="Installation Date"
                     android:fontFamily="serif"
+                    android:gravity="center_vertical"
                     android:inputType="text"
+                    android:text="Visiting Date"
                     android:textColor="@color/dark_blue"
-                    android:textSize="16dip"/>
+                    android:textSize="16dip" />
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dip"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="8dip"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/form_image"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/image_border"
+                    android:scaleType="fitXY" />
+                <!--android:src="@drawable/ic_action_image"-->
+
+                <Button
+                    android:id="@+id/btn_uploadPhoto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_blue_cornor"
+                    android:fontFamily="@font/sf_pro_display_medium"
+                    android:padding="12.5dp"
+                    android:text="Click Photo"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="13.5sp" />
             </LinearLayout>
 
 
@@ -387,8 +801,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:background="#ffffff"
-                app:cardCornerRadius="5dp"
-                >
+                app:cardCornerRadius="5dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -400,30 +814,41 @@
                         android:layout_height="wrap_content"
 
                         android:orientation="vertical">
-                        <FrameLayout
-                            android:orientation="vertical"
-                            android:background="@drawable/round_border"
+                        <TextView
+                            android:id="@+id/tv_msg"
                             android:layout_width="match_parent"
-                            android:padding="10dp"
+                            android:layout_height="match_parent"
+                            android:padding="3dp"
+                            android:visibility="gone"
+                            android:text="Fake Location Detected in your phone, kindly uninstall Fake GPS App."
+                            android:textColor="@color/red"
+                            android:textSize="14sp" />
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="18dp"
                             android:layout_marginTop="18dp"
                             android:layout_marginRight="18dp"
-                            android:layout_height="wrap_content">
+                            android:background="@drawable/round_border"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
                             <TextView
                                 android:id="@+id/tv_latlong"
                                 android:layout_width="match_parent"
-                                android:text="Current Location"
+                                android:layout_height="match_parent"
                                 android:padding="3dp"
-                                android:textSize="14sp"
+                                android:text="Current Location"
                                 android:textColor="@color/red"
-                                android:layout_height="match_parent" />
+                                android:textSize="14sp" />
+
                             <ProgressBar
                                 android:id="@+id/tvProgess"
-                                android:indeterminateDrawable="@drawable/gps_progress"
                                 android:layout_width="30dp"
-                                android:visibility="gone"
                                 android:layout_height="30dp"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:indeterminateDrawable="@drawable/gps_progress"
+                                android:visibility="gone" />
                         </FrameLayout>
 
                         <Button
@@ -434,8 +859,8 @@
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_gravity="center"
-                            android:layout_marginBottom="15dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="15dp"
                             android:background="@drawable/rect_blue_cornor1"
                             android:paddingLeft="65dp"
                             android:paddingTop="15dp"
@@ -443,8 +868,7 @@
                             android:paddingBottom="15dp"
                             android:text="Get Location"
                             android:textColor="@color/white"
-                            android:textSize="13.3sp"/>
-
+                            android:textSize="13.3sp" />
 
 
                     </LinearLayout>
@@ -466,15 +890,15 @@
                     android:id="@+id/btnSubmit"
                     android:layout_width="250dip"
                     android:layout_height="48dip"
-                    android:fontFamily="serif"
-                    android:background="@drawable/btn_orange"
-                    android:layout_marginTop="20dip"
-                    android:textColor="@color/white"
-                    android:textSize="18dip"
-                    android:textAllCaps="false"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20dip"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/btn_orange"
+                    android:fontFamily="serif"
                     android:text="Submit"
-                    android:layout_marginBottom="10dp"/>
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dip" />
 
             </LinearLayout>
         </LinearLayout>

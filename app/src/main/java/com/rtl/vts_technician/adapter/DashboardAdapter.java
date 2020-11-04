@@ -1,4 +1,4 @@
-package com.rtl.vts_technician.adapter;
+package com.rtl.vts_technician.Adapter;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.rtl.vts_technician.R;
-import com.rtl.vts_technician.model.dashboard;
+import com.rtl.vts_technician.Pojo.dashboard;
 
 import java.util.List;
 

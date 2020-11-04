@@ -11,7 +11,7 @@
     <color name="colorAccentTrans">#a0009688</color>
     <color name="colorBlackTrans">#434343</color>
     <color name="fb_blue">#3b5998</color>
-
+    <color name="headerColor">#145795</color>
     <color name="header_color">#F03E3A</color>
 
     <color name="dark_primary">#5D4037</color>

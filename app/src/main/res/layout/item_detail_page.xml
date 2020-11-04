@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#c8c8c6">
+    android:layout_height="wrap_content"
+    android:background="#c8c8c6"
+    android:layout_marginBottom="5dp">
 
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#c8c8c6">
 
         <LinearLayout
             android:id="@+id/shelterLayout"
@@ -15,6 +16,7 @@
             android:layout_height="match_parent"
             android:layout_weight=".1"
             android:background="#f1f1f1"
+
             android:orientation="horizontal">
             <View
                 android:id="@+id/viewLine"
@@ -24,11 +26,13 @@
             <TextView
                 android:id="@+id/txtid"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
                 android:text="id"
+                android:textStyle="bold"
                 android:textColor="#434343"
-                android:textSize="12dip"
+                android:textSize="15dip"
                 android:layout_marginLeft="2dip"/>
         </LinearLayout>
         <LinearLayout

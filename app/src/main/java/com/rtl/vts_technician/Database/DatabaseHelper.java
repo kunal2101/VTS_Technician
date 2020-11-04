@@ -6,10 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.rtl.vts_technician.model.De_installDeviceModel;
-import com.rtl.vts_technician.model.MaintainanceDeviceModel;
-import com.rtl.vts_technician.model.NewInstallDeviceModel;
-import com.rtl.vts_technician.model.ReplaceDeviceModel;
+import com.rtl.vts_technician.Pojo.De_installDeviceModel;
+import com.rtl.vts_technician.Pojo.MaintainanceDeviceModel;
+import com.rtl.vts_technician.Pojo.NewInstallDeviceModel;
+import com.rtl.vts_technician.Pojo.ReplaceDeviceModel;
 
 import java.util.ArrayList;
 
@@ -70,7 +70,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + REPLACE_TABLE + " ;");
         onCreate(db);
     }
-
 
     public void insertNewData( NewInstallDeviceModel modelDatabase) {
 
@@ -137,8 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Toast.makeText(mContex, "Data saved sucessfully", Toast.LENGTH_LONG).show();
     }
 
-    public Boolean searchVehicle(String vehno)
-    {
+    public Boolean searchVehicle(String vehno) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + INSTALLATION_TABLE +" Where veh_no ='" + vehno + "' ", null);
         Boolean rowExists;
@@ -160,7 +158,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(REPLACE_TABLE, null, null);
         db.close();
     }
-
 
     public ArrayList<NewInstallDeviceModel> getInstall_Arry_list() {
         ArrayList<NewInstallDeviceModel> data = new ArrayList<>();
@@ -245,6 +242,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return data;
     }
+
     public ArrayList<MaintainanceDeviceModel> getMaintaince_Arry_list() {
         ArrayList<MaintainanceDeviceModel> data = new ArrayList<>();
 
@@ -293,7 +291,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return data;
     }
-
 
     public ArrayList<ReplaceDeviceModel> getReplace_Arry_list() {
         ArrayList<ReplaceDeviceModel> data = new ArrayList<>();

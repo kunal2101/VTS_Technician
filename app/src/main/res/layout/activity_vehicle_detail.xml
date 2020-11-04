@@ -234,9 +234,7 @@
                     </LinearLayout>
 
                     <TextView
-
                         android:fontFamily="@font/roboto_regular"
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Date/Time :- "
@@ -247,17 +245,14 @@
                     <TextView
                         android:id="@+id/txtDateTime"
                         android:fontFamily="@font/roboto_regular"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="---------------"
                         android:layout_marginLeft="15dp"
-
                         android:textSize="13dp"
                         android:textColor="@color/mainText"/>
                     <TextView
                         android:fontFamily="@font/roboto_regular"
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Last Location :- "
@@ -265,16 +260,16 @@
                         android:textSize="11dp"
                         android:layout_marginLeft="15dp"
                         android:textColor="@color/subText"/>
+
                     <TextView
                         android:id="@+id/txtLstLoc"
                         android:fontFamily="@font/roboto_regular"
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="-------------------"
                         android:layout_marginLeft="15dp"
-
                         android:textSize="13dp"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/mainText"/>
 
                     <View

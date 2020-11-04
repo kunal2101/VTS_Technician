@@ -1,5 +1,6 @@
 package com.rtl.vts_technician;
 
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -26,15 +27,16 @@ public class PreferenceHelper {
     // All Shared Preferences Keys
     private static final String IS_CREATED      = "isCreateIn";
 
-    private final String DEVICE_TOKEN           = "device_token";
-    private final String SESSION_TOKEN          = "session_token";
     public static final String USER_ID          = "user_id";
-    public static final String COMPANY_NAME     = "CompanyName";
-    public static final String COMPANY_ID       = "companyid";
-    public static final String COMPANY_INFO     = "CompanyInfo";
-    public static final String COMPANY_LOGO     = "Imagepath1";
-    public static final String COMPANY_ICON     = "Imagepath2";
     private final String USERNAME               = "name";
+    private final String MOBILE                 = "mobile";
+    private final String USERLOGIN              = "userlogin";
+    private final String ADMINLOGIN             = "adminlogin";
+    private final String PASSWORD               = "password";
+    private final String ADMINPASSWORD          = "adminpassword";
+    private final String TOKEN                 = "token";
+    private final String REGION_CODE           = "region_code";
+    private final String REGION_NAME           = "region_name";
      
     // Constructor
     public PreferenceHelper(Context context){
@@ -50,32 +52,104 @@ public class PreferenceHelper {
         return uname;
     }
 
+    public String getRegion_Name() {
+        return pref.getString(REGION_NAME, null);
+
+    }
+
+    public String putRegion_name(String uname) {
+        Editor edit = pref.edit();
+        edit.putString(REGION_NAME, uname);
+        edit.commit();
+        return uname;
+    }
+
+    public String getRegion_code() {
+        return pref.getString(REGION_CODE, null);
+
+    }
+
+    public String putRegion_code(String uname) {
+        Editor edit = pref.edit();
+        edit.putString(REGION_CODE, uname);
+        edit.commit();
+        return uname;
+    }
+
     public String getUser_Name() {
         return pref.getString(USERNAME, null);
 
     }
 
-    public void putDeviceToken(String deviceToken) {
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(DEVICE_TOKEN, deviceToken);
-        editor.commit();
+
+    public String putMobileNo(String mobile) {
+        Editor edit = pref.edit();
+        edit.putString(MOBILE, mobile);
+        edit.commit();
+        return mobile;
     }
 
-    public String getDeviceToken() {
-        return pref.getString(DEVICE_TOKEN, null);
-    }
-
-    public void putSessionToken(String sessionToken) {
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(SESSION_TOKEN, sessionToken);
-        editor.commit();
-    }
-
-    public String getSessionToken() {
-        return pref.getString(SESSION_TOKEN, null);
+    public String getMobile() {
+        return pref.getString(MOBILE, null);
 
     }
-    //2.
+
+    public String putToken(String token) {
+        Editor edit = pref.edit();
+        edit.putString(TOKEN, token);
+        edit.commit();
+        return token;
+    }
+
+    public String getToken() {
+        return pref.getString(TOKEN, null);
+
+    }
+
+    public String putPassword(String mobile) {
+        Editor edit = pref.edit();
+        edit.putString(PASSWORD, mobile);
+        edit.commit();
+        return mobile;
+    }
+
+    public String getPassword() {
+        return pref.getString(PASSWORD, null);
+    }
+
+    public String putAdminPassword(String adminPass) {
+        Editor edit = pref.edit();
+        edit.putString(ADMINPASSWORD, adminPass);
+        edit.commit();
+        return adminPass;
+    }
+
+    public String getAdminPassword() {
+        return pref.getString(ADMINPASSWORD, null);
+    }
+
+    public String putUserLogin(String userlogin) {
+        Editor edit = pref.edit();
+        edit.putString(USERLOGIN, userlogin);
+        edit.commit();
+        return userlogin;
+    }
+
+    public String getUserLogin() {
+        return pref.getString(USERLOGIN, null);
+    }
+
+    public String putAdminLogin(String adminlogin) {
+        Editor edit = pref.edit();
+        edit.putString(ADMINLOGIN, adminlogin);
+        edit.commit();
+        return adminlogin;
+    }
+
+    public String getAdminLogin() {
+        return pref.getString(ADMINLOGIN, null);
+    }
+
     //store user_id
     public void putUser_id(String user_id){
         editor.putBoolean(IS_CREATED, true);
@@ -89,20 +163,6 @@ public class PreferenceHelper {
         return pref.getString(USER_ID, null);
     }
 
-    //store user_id
-    public void putCompany_id(String cpmpany_id){
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(COMPANY_ID, cpmpany_id);
-        editor.commit();
-    }
-    public String getCompany_id(){
-        return pref.getString(COMPANY_ID, null);
-    }
-    /**
-     * Check login method wil check user login status
-     * If false it will redirect user to login page
-     * Else won't do anything
-     * */
     public boolean isCreated(){
         if(this.iscreated()){
             return true;
@@ -114,48 +174,5 @@ public class PreferenceHelper {
         return pref.getBoolean(IS_CREATED, false);
     }
 
-    public void putCompanyNAme(String companyName){
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(COMPANY_NAME, companyName);
-        editor.commit();
-    }
-
-    //get user_id
-    public String getputCompanyNAme(){
-        return pref.getString(COMPANY_NAME, null);
-    }
-
-    public void putCompanyInfo(String companyInfo){
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(COMPANY_INFO, companyInfo);
-        editor.commit();
-    }
-
-    //get user_id
-    public String getputCompanyInfo(){
-        return pref.getString(COMPANY_INFO, null);
-    }
-
-    public void putCompanyImage(String companyImage){
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(COMPANY_LOGO, companyImage);
-        editor.commit();
-    }
-
-    //get user_id
-    public String getputCompanyImage(){
-        return pref.getString(COMPANY_LOGO, null);
-    }
-
-    public void putCompanyicon(String companyIcon){
-        editor.putBoolean(IS_CREATED, true);
-        editor.putString(COMPANY_ICON, companyIcon);
-        editor.commit();
-    }
-
-    //get user_id
-    public String getputCompanyIcon(){
-        return pref.getString(COMPANY_ICON, null);
-    }
 
 }

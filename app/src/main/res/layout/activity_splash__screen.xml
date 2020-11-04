@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rela_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
    <!-- <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
@@ -42,7 +42,8 @@
             android:shadowColor="#000000"
             android:shadowDy="-2"
             android:shadowRadius="2"
-            android:fontFamily="serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="cursive"
             android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textStyle="bold"
@@ -59,7 +60,8 @@
             android:shadowColor="#000000"
             android:shadowDy="-3"
             android:shadowRadius="3"
-            android:fontFamily="serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="cursive"
             android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textStyle="bold" />
@@ -98,8 +100,8 @@
             android:shadowRadius="2"
             android:layout_marginLeft="30dp"
             android:layout_gravity="center"
-            android:fontFamily="serif"
-
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:fontFamily="cursive"
             android:textColor="@color/colorPrimary"
             android:gravity="center"
             android:textStyle="bold" />

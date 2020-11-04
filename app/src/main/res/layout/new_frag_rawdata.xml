@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back_image"
-    tools:context=".MainActivity">
+    >
     <!--
         <RelativeLayout
             android:id="@+id/toolbarLayout"
@@ -89,7 +89,22 @@
             android:layout_marginTop="5dp"
             android:tint="#d0d0d0" />
 
-        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+       <TextView
+            android:id="@+id/txtVehicleNo"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8.7dp"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:text="Search ImeiNo...."
+            android:fontFamily="serif"
+            android:inputType="text"
+            android:textColor="@color/dark_blue"
+            android:textColorHint="@color/main_grey"
+            android:textSize="16dip"/>
+       <!-- <com.toptoche.searchablespinnerlibrary.SearchableSpinner
             android:id="@+id/spinner_vehicle"
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -97,7 +112,7 @@
             android:layout_weight="1"
             android:layout_marginRight="5dp"
             app:hintText="Search ImeiNo/DeviceId..."
-            />
+            />-->
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
@@ -108,10 +123,25 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/txtq"
+       android:layout_below="@+id/lin_sea_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22.1dp"
+        android:layout_marginRight="21.1dp"
+        android:layout_marginTop="2dp"
+        android:background="@null"
+        android:text="ImeiNo. / Device Id"
+        android:fontFamily="serif"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textSize="12dip"/>
+
+    <TextView
         android:id="@+id/search_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtAddImeiNO"
+        android:layout_below="@+id/txtq"
         android:layout_marginLeft="22.1dp"
         android:layout_marginRight="21.1dp"
         android:layout_marginTop="22.1dp"
@@ -126,7 +156,7 @@
         android:id="@+id/txtAddImeiNO"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lin_sea_"
+        android:layout_below="@+id/search_box"
         android:layout_marginLeft="22.1dp"
         android:layout_marginRight="21.1dp"
         android:layout_marginTop="22.1dp"
@@ -135,9 +165,10 @@
         android:gravity="center_horizontal"
         android:padding="16dp"
         android:clickable="false"
-        android:text="Add New ImeiNo(Data Sync)"
+        android:text="Sync IMIE no."
         android:textColor="#ffffff"
-        android:textSize="14.4sp" />
+        android:textSize="14.4sp"
+        android:visibility="gone"/>
 
 
     <TextView

@@ -1,20 +1,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
-        android:layout_margin="16dp"
-        app:cardElevation="0dp"
+        android:layout_margin="10dp"
+        app:cardElevation="5dp"
         app:cardCornerRadius="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/action_search"
-            app:queryHint="Search Vehicle ...."
+            app:queryHint="Search by Depo./Vehicle ...."
             android:layout_margin="8dp"
             android:background="@android:color/white"
             app:queryBackground="@android:color/white"

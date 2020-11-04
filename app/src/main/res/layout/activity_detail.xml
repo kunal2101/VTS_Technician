@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".Activity.RawDataResultActivity">
     <RelativeLayout
         android:id="@+id/toolbarLayout"
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ImeniNo"
+                        android:text="Imei No."
                         android:textColor="@color/smoke_white"
                         android:textSize="15dip"
                         android:fontFamily="@font/robotobold"  />
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dip"
-                    android:text="45784213368"
+                    android:text="*************"
                     android:textColor="@color/smoke_white"
                     android:textSize="18dip"
                     android:textStyle="bold"
@@ -107,7 +107,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DeviceId"
+                    android:text="Device Id"
                     android:textColor="@color/smoke_white"
                     android:textSize="15dip"
                     android:fontFamily="@font/robotobold"/>
@@ -116,7 +116,7 @@
                     android:id="@+id/txtDeviceId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="4587856"
+                    android:text="*****"
                     android:textColor="@color/smoke_white"
                     android:textSize="20dip"
                     android:textStyle="bold"
@@ -147,7 +147,7 @@
                     android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="16/05/2019"
+                    android:text="*****"
                     android:textColor="@color/smoke_white"
                     android:textSize="20dip"
                     android:textStyle="bold"
@@ -238,7 +238,7 @@
         android:gravity="center_horizontal"
         android:padding="16dp"
         android:text="LOAD MORE DATA"
-
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:textColor="#ffffff"
         android:textSize="14.4sp" />

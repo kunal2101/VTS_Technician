@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VTS_Technician.iml" filepath="$PROJECT_DIR$/VTS_Technician.iml" group="VTS_Technician" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="VTS_Technician/app" />
-      <module fileurl="file://$PROJECT_DIR$/date_time_picker_library/date_time_picker_library.iml" filepath="$PROJECT_DIR$/date_time_picker_library/date_time_picker_library.iml" group="VTS_Technician/date_time_picker_library" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VTS_Technician_1.0.11.iml" filepath="$PROJECT_DIR$/.idea/modules/VTS_Technician_1.0.11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VTS_Technician_1.0.11.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VTS_Technician_1.0.11.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/date_time_picker_library/VTS_Technician_1.0.11.date_time_picker_library.iml" filepath="$PROJECT_DIR$/.idea/modules/date_time_picker_library/VTS_Technician_1.0.11.date_time_picker_library.iml" />
     </modules>
   </component>
 </project>
